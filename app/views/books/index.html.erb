@@ -1,0 +1,25 @@
+
+<h1>Search Matches for <%= @book.upcase %></h1>
+
+<div class="list">
+
+		<% if !@books.empty? %>
+			<% @books.results.work.each do |book| %>
+			<ol>
+				<li>
+					<p>
+						<b><%= book.best_book.title %></b>(<%= book.original_publication_year %>), <%= book.best_book.author.name %>, <%= book.best_book.description %>
+						<%= image_tag book.best_book.image_url  %>
+					</p>
+					<%= book %>
+				</li>
+			</ol>
+			<% end %>
+				<hr>
+		<% else %>
+			<ul>
+				<li>Sorry, no listings found for your selection.</li>
+			</ul>
+		<% end %>
+
+</div>

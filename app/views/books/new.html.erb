@@ -1,0 +1,8 @@
+
+<h1>Look up a book</h1>
+
+	<%= form_tag(books_index_path, :method=>"get") do %>
+      <%= text_field_tag(:choice) %>
+      <%= submit_tag("SELECT", :class=>"btn") %>
+  <% end %>
+
