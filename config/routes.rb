@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'books/show'
 
+  get 'books/map'
+
   get 'users/index'
 
   get 'users/show'

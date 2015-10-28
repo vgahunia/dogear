@@ -10,15 +10,15 @@ class APIS::Goodreads
 
 	def search_by_title(term)
 		puts "STEP 1"
-		fetch_data_and_parse("https://itunes.apple.com/search?term=#{URI.encode(term)}")
+		fetch_data_and_parse("https://www.goodreads.com/search.xml?key=RSjLxvyJFAhMMBuVWzAg&q=#{URI.encode(term)}")
 	end
 
 	def pull_title_and_id(parsed)
 		puts "STEP 3"
-		songs = parsed["results"]
+		books = parsed["results"]
 	end
 
-	def search_by_id(param_id)
+	def search_by_author(param_id)
 		my_url = "https://itunes.apple.com/lookup?id=#{param_id}"
 		uri = URI(my_url)
 		fetch_data_and_parse(uri)

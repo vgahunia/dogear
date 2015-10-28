@@ -8,7 +8,10 @@
 			<ol>
 				<li>
 					<p>
-						<b><%= book.best_book.title %></b>(<%= book.original_publication_year %>), <%= book.best_book.author.name %>, <%= book.best_book.description %>
+						<b><%= book.best_book.title %></b>
+						(<%= book.original_publication_year %>), 
+						<%= book.best_book.author.name %>,
+						<%= book.best_book.description %>
 						<%= image_tag book.best_book.image_url  %>
 					</p>
 					<%= book %>

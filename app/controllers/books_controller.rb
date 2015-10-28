@@ -5,10 +5,15 @@ class BooksController < ApplicationController
   end
 
   def index
-    @book = params[:choice]
-    book_match = []
     client = Goodreads.new
+    @client = client
+
+    @book = params[:choice_title]
     @books = client.search_books(@book)
+  end
+
+  def map
+    @location = params[:choice_location]
   end
 
   def show

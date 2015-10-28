@@ -1,8 +1,15 @@
 
-<h1>Look up a book</h1>
+<h3>Look up a book by title</h3>
 
 	<%= form_tag(books_index_path, :method=>"get") do %>
-      <%= text_field_tag(:choice) %>
+      <%= text_field_tag(:choice_title) %>
+      <%= submit_tag("SELECT", :class=>"btn") %>
+  <% end %>
+
+<h3>Find a book store nearest to you</h3>
+
+	<%= form_tag(books_map_path, :method=>"get") do %>
+      <%= text_field_tag(:choice_location) %>
       <%= submit_tag("SELECT", :class=>"btn") %>
   <% end %>
 
