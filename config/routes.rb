@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'bookstores/new'
+
+  post 'bookstores/create'
+
   get 'sessions/create'
 
   get 'books/index'
@@ -7,6 +11,8 @@ Rails.application.routes.draw do
   get 'books/new'
 
   get 'books/show'
+
+  post 'books/store'
 
   get 'books/map'
 
@@ -27,6 +33,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :users
     resources :books
+    resources :bookstores
 
   root 'books#new'
 
