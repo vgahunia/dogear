@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'static/home'
+
   get 'bookstores/new'
 
   post 'bookstores/create'
@@ -14,7 +20,7 @@ Rails.application.routes.draw do
 
   post 'books/store'
 
-  get 'books/map'
+  get 'bookstores/map'
 
   get 'users/index'
 
@@ -35,7 +41,7 @@ Rails.application.routes.draw do
     resources :books
     resources :bookstores
 
-  root 'books#new'
+  root 'static#home'
 
   
 end
