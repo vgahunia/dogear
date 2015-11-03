@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
   get 'sessions/new'
 
   get 'sessions/create'
@@ -26,7 +28,7 @@ Rails.application.routes.draw do
 
   get 'users/show'
 
-  get 'users/new'
+  get 'signup' => 'users#new'
 
   # root 'welcome#index'
 
