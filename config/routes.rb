@@ -2,17 +2,11 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
-  get 'sessions/new'
-
-  get 'sessions/create'
-
   get 'static/home'
 
   get 'bookstores/new'
 
   post 'bookstores/create'
-
-  get 'sessions/create'
 
   get 'books/index'
 
@@ -29,6 +23,9 @@ Rails.application.routes.draw do
   get 'users/show'
 
   get 'signup' => 'users#new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  get 'logout'  => 'sessions#destroy'
 
   # root 'welcome#index'
 

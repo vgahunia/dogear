@@ -1,9 +1,13 @@
 
-<h1>Search Matches for <%= @book.upcase %></h1>
+<% if @book %>
+	<h1>Search Matches for <%= @book.upcase %></h1>
+<% else %>
+	<h1>Search for a book</h1>
+<% end %>
 
 <div class="list">
 
-		<% if !@books.empty? %>
+		<% if !@books.nil? %>
 			<% @books.results.work.each do |book| %>
 			<ol>
 				<li>
