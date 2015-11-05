@@ -1,15 +1,15 @@
-
+<%= render 'layouts/header' %>
 <% if @book %>
 	<h1>Search Matches for <%= @book.upcase %></h1>
 <% else %>
 	<h1>Search for a book</h1>
 <% end %>
-
+	
 <div class="list">
 
-		<% if !@books.nil? %>
-			<% @books.results.work.each do |book| %>
+		<% if !@books.empty? %>
 			<ol>
+			<% @books.results.work.each do |book| %>
 				<li>
 					<p>
 						<b><%= book.best_book.title %></b>
@@ -19,9 +19,10 @@
 						<%= image_tag book.best_book.image_url  %>
 					</p>
 					<%= book %>
+					<%= link_to "Add to Favorites" %>
 				</li>
-			</ol>
 			<% end %>
+			</ol>
 				<hr>
 		<% else %>
 			<ul>

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get 'users/show'
 
   get 'signup' => 'users#new'
-  get    'login'   => 'sessions#new'
+  get   'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   get 'logout'  => 'sessions#destroy'
 

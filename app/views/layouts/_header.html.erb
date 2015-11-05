@@ -1,14 +1,24 @@
 <div class="col-sm-12" id="logo">
-	<h1>DogEar</h1>
-	<nav>
+	<% if logged_in? %>
+		<p>Hi, <%= @current_user.first_name %></p>
+	<% end %>
+	<h1><%= link_to "DogEar", root_path %></h1>
+
+	
+
+	<p>(the marginally-discerning booklover's semi-organized organizational resource)... woof</p>
+	<nav id="header_menu">
 		<ul>
 			<li><%= link_to "Home", root_path %></li>
 			<li><%= link_to "Look up Books", books_new_path %></li>
+			<li><%= link_to "Look up Quotes" %></li>
+			<li><%= link_to "Look up Bookstores", bookstores_map_path %></li>
 			<% if logged_in? %>
 				<li><%= link_to "My Profile", current_user %></li>
 				<li><%= link_to "Log Out", logout_path %></li>
 			<% else %>
 				<li><%= link_to "Log in", login_path %></li>
+				<li><%= link_to "Start an Account", signup_path %></li>
 			<% end %>
 		</ul>
 	</nav>

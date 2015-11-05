@@ -1,10 +1,15 @@
 class BooksController < ApplicationController
+  include SessionsHelper
 
   def new
     @bookstore = Bookstore.new
   end
 
   def index
+    if @user
+      @user = User.find(params[:id])
+    end
+    
     client = Goodreads.new
     @client = client
 
