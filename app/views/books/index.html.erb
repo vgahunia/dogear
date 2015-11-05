@@ -9,14 +9,13 @@
 
 		<% if !@books.empty? %>
 			<ol>
-			<% @books.results.work.each do |book| %>
+			<% @book_list.each do |book| %>
 				<li>
 					<p>
-						<b><%= book.best_book.title %></b>
-						(<%= book.original_publication_year %>), 
-						<%= book.best_book.author.name %>,
-						<%= book.best_book.description %>
-						<%= image_tag book.best_book.image_url  %>
+						<b><%= book.title %></b>
+						<b>(<%= book.year %>)</b>
+						<b><%= book.author %></b>
+						<b><%= image_tag book.image_url %></b>
 					</p>
 					<%= book %>
 					<%= link_to "Add to Favorites" %>
