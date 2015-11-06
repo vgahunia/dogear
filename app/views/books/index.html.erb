@@ -1,32 +1,38 @@
 <%= render 'layouts/header' %>
+
 <% if @book %>
 	<h1>Search Matches for <%= @book.upcase %></h1>
 <% else %>
 	<h1>Search for a book</h1>
 <% end %>
-	
-<div class="list">
 
-		<% if !@books.empty? %>
-			<ol>
-			<% @book_list.each do |book| %>
-				<li>
-					<p>
-						<b><%= book.title %></b>
-						<b>(<%= book.year %>)</b>
-						<b><%= book.author %></b>
-						<b><%= image_tag book.image_url %></b>
-					</p>
-					<%= book %>
-					<%= link_to "Add to Favorites" %>
-				</li>
-			<% end %>
-			</ol>
-				<hr>
-		<% else %>
-			<ul>
-				<li>Sorry, no listings found for your selection.</li>
-			</ul>
+<div class="list">
+	<% if !@books.empty? %>
+		<ol>
+		<% @book_list.each do |book| %>
+			<li>
+				<p>
+					<b><%= book.title %></b>
+					<b>(<%= book.year %>)</b>
+					<b><%= book.author %></b>
+					<b><%= image_tag book.image_url %></b>
+					<b><%= book.id %>,<%= book.gr_id %></b>
+				</p>
+			
+				<% if logged_in? %>
+					<div id="book_message">
+					<%= link_to "Add to My Favorites", share_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "favorite" %>
+					<div>
+					<br>
+				<% end %>
+			</li>
 		<% end %>
+		</ol>
+			<hr>
+	<% else %>
+		<ul>
+			<li>Sorry, no listings found for your selection.</li>
+		</ul>
+	<% end %>
 
 </div>

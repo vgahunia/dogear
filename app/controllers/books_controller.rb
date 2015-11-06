@@ -6,10 +6,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    if @user
-      @user = User.find(params[:id])
-    end
-
+    current_user
     client = Goodreads.new
     @client = client
 
@@ -17,14 +14,37 @@ class BooksController < ApplicationController
     @books = client.search_books(@book)
     @book_list = []
 
-    @books.results.work.each {|book| @book_list << Book.create({
-      title: book.best_book.title,
-      author: book.best_book.author.name, 
-      year: book.original_publication_year, 
-      image_url: book.best_book.image_url
-    })
+    @books.results.work.each {|book|
+      puts "*******************************"
+      puts book.best_book.id
+      if Book.find_by(gr_id: book.best_book.id)
+        b = Book.find_by(gr_id: book.best_book.id)
+      else
+        b = Book.create({
+        title: book.best_book.title,
+        author: book.best_book.author.name, 
+        year: book.original_publication_year, 
+        image_url: book.best_book.image_url,
+        gr_id: book.best_book.id
+        })
+      end
+    @book_list << b
   }
 
+
+  end
+
+  def share
+    user = User.find(params[:user_id])
+    book = Book.find(params[:book_id])
+    if user.books << book
+      puts "ADDED THIS"
+      respond_to do |format|
+        format.js
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def store

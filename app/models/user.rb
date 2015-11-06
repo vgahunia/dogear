@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-	has_many :books
+	has_many :books, through: :favorites
+	has_many :favorites
 
 	before_save { self.email = email.downcase }
 	validates(:first_name, presence: true)

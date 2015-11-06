@@ -19,6 +19,7 @@ gem 'gmaps4rails'
 gem 'geocoder', '~> 1.2', '>= 1.2.8'
 gem 'gon', '~> 6.0', '>= 6.0.1'
 gem 'goodreads', '~> 0.4.2'
+gem 'google_books', '~> 0.2.2'
 gem 'awesome_print'
 
 
