@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   get 'users/show'
 
+  post '/submit_map'  => 'bookstores#map'
   get 'signup' => 'users#new'
   get   'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

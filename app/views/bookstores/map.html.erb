@@ -5,25 +5,26 @@
 <div style='width: 800px;'>
   <div id="map" style='width: 600px; height: 400px;'></div>
 </div>
+<%= include_gon %>
+<%= @book_stores %>
 
 <script>
+	console.log(gon.test);
 	$(document).ready(function(){
 	  var handler = Gmaps.build('Google');
 	  handler.buildMap({ 
 	    provider: {
-	      // google options here
-	     // zoom: 20,
 	     minZoom: 10 ,
 	    },
-	    
 	    internal: {id: 'map'}
-	  }, function(){
+	  	}, function(){
 	    if(navigator.geolocation)
 	    	navigator.geolocation.getCurrentPosition(displayOnMap);
+	    	// navigator.geolocation.getCurrentPosition(send_data);
 	    markers = handler.addMarkers(<%= raw @hash.to_json %>);
 	    handler.bounds.extendWith(markers);
 	    handler.fitMapToBounds();
-	    handler.getMap().setZoom(15); 
+	    handler.getMap().setZoom(15);
 	  });
 
 	  function displayOnMap(position){
@@ -32,8 +33,24 @@
 		    lng: position.coords.longitude,
 		    infowindow: "You Are Here"
 		  });
-	  // put on click here!
-	  handler.map.centerOn(marker);
+	  	handler.map.centerOn(marker);
 		};
+
+		function send_data(position) {
+			var form = document.createElement("form");
+			form.method = 'post';
+			form.action = '/submit_map';
+			var input = document.createElement('input');
+			input.type = "number";
+			input.name = "lat";
+			input.value = position.coords.latitude;
+			form.appendChild(input);
+			var input2 = document.createElement('input');
+			input2.type = "number";
+			input2.name = "lng";
+			input2.value = position.coords.longitude;
+			form.appendChild(input2);
+			form.submit();
+		}
 	});
 </script>

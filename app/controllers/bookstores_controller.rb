@@ -1,4 +1,6 @@
 class BookstoresController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  include BookstoresHelper
 
   def new
   	@bookstore = Bookstore.new
@@ -12,6 +14,14 @@ class BookstoresController < ApplicationController
   end
 
   def map
+    if !params[:lat].nil? && !params[:lng].nil?
+      puts params[:lat]
+      puts params[:lng]
+      lat = params[:lat]
+      lng = params[:lng]
+    end
+    gon.test = "test"
+    @book_stores = find_stores(lat, lng)
     @location = params[:choice_location]
     @bookstores = Bookstore.all
     @hash = Gmaps4rails.build_markers(@bookstores) do |bookstore, marker|

@@ -15,8 +15,6 @@ class BooksController < ApplicationController
     @book_list = []
 
     @books.results.work.each {|book|
-      puts "*******************************"
-      puts book.best_book.id
       if Book.find_by(gr_id: book.best_book.id)
         b = Book.find_by(gr_id: book.best_book.id)
       else
@@ -30,8 +28,6 @@ class BooksController < ApplicationController
       end
     @book_list << b
   }
-
-
   end
 
   def share
