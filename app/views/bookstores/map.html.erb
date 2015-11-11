@@ -2,14 +2,34 @@
 
 <div id="message"></div>
 
-<div style='width: 800px;'>
-  <div id="map" style='width: 600px; height: 400px;'></div>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div>
+		  <div id="map" style='width: 600px; height: 400px;'></div>
+		</div>
+	</div>
 </div>
 <%= include_gon %>
-<%= @book_stores %>
+
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<h1>Bookstores</h1>
+		<%= @book_stores.each do |store| %>
+			<%= store %>
+			<br><br>
+		<% end %>
+
+		<h1>Libraries</h1>
+		<%= @libs.each do |library| %>
+			<%= library['name'] %>
+			<%= library['vicinity'] %>
+			<br><hr>
+		<% end %>
+	</div>
+	<div class="col-md-3"></div>
+</div>
 
 <script>
-	console.log(gon.test);
 	$(document).ready(function(){
 	  var handler = Gmaps.build('Google');
 	  handler.buildMap({ 
@@ -20,7 +40,8 @@
 	  	}, function(){
 	    if(navigator.geolocation)
 	    	navigator.geolocation.getCurrentPosition(displayOnMap);
-	    	// navigator.geolocation.getCurrentPosition(send_data);
+	    // if(gon.test)
+	    	navigator.geolocation.getCurrentPosition(send_data);
 	    markers = handler.addMarkers(<%= raw @hash.to_json %>);
 	    handler.bounds.extendWith(markers);
 	    handler.fitMapToBounds();
@@ -34,23 +55,50 @@
 		    infowindow: "You Are Here"
 		  });
 	  	handler.map.centerOn(marker);
+	  	console.log(position.coords.latitude, position.coords.longitude);
 		};
 
-		function send_data(position) {
-			var form = document.createElement("form");
-			form.method = 'post';
-			form.action = '/submit_map';
-			var input = document.createElement('input');
-			input.type = "number";
-			input.name = "lat";
-			input.value = position.coords.latitude;
-			form.appendChild(input);
-			var input2 = document.createElement('input');
-			input2.type = "number";
-			input2.name = "lng";
-			input2.value = position.coords.longitude;
-			form.appendChild(input2);
-			form.submit();
-		}
+		var send_data = (function() {
+	    var executed = false;
+	    return function () {
+        if (!executed) {
+        	console.log("testing....");
+          executed = true;
+					var form = document.createElement("form");
+					form.method = 'post';
+					form.action = '/submit_map';
+					var input = document.createElement('input');
+					input.type = "number";
+					input.name = "lat";
+					input.value = position.coords.latitude;
+					form.appendChild(input);
+					var input2 = document.createElement('input');
+					input2.type = "number";
+					input2.name = "lng";
+					input2.value = position.coords.longitude;
+					form.appendChild(input2);
+					form.submit();
+					console.log("testing to see if function works")
+        }
+	    };
+		})();
+
+		// function send_data(position) {
+		// 	var form = document.createElement("form");
+		// 	form.method = 'post';
+		// 	form.action = '/submit_map';
+		// 	var input = document.createElement('input');
+		// 	input.type = "number";
+		// 	input.name = "lat";
+		// 	input.value = position.coords.latitude;
+		// 	form.appendChild(input);
+		// 	var input2 = document.createElement('input');
+		// 	input2.type = "number";
+		// 	input2.name = "lng";
+		// 	input2.value = position.coords.longitude;
+		// 	form.appendChild(input2);
+		// 	form.submit();
+		// 	console.log("testing send_data reached the end.")
+		// }
 	});
 </script>

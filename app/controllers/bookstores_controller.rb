@@ -4,7 +4,6 @@ class BookstoresController < ApplicationController
 
   def new
   	@bookstore = Bookstore.new
-
   	@bookstores = Bookstore.all
   end
 
@@ -17,11 +16,13 @@ class BookstoresController < ApplicationController
     if !params[:lat].nil? && !params[:lng].nil?
       puts params[:lat]
       puts params[:lng]
+      gon.test = false
       lat = params[:lat]
       lng = params[:lng]
     end
-    gon.test = "test"
+
     @book_stores = find_stores(lat, lng)
+    @libs = find_libs(lat, lng)
     @location = params[:choice_location]
     @bookstores = Bookstore.all
     @hash = Gmaps4rails.build_markers(@bookstores) do |bookstore, marker|
@@ -29,6 +30,8 @@ class BookstoresController < ApplicationController
       marker.lng(bookstore.longitude)
       marker.infowindow(bookstore.description)
     end
+    puts params[:lat]
+    puts params[:lng]
   end
 
   private
