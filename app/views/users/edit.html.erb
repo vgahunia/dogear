@@ -24,7 +24,10 @@
 
       <%= f.submit "Update my account", class: "btn btn-primary" %>
     <% end %>
-    <%= link_to "Delete your account" %>
+      <% if current_user?(@user) %>
+    | 	<%= link_to "delete", @user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+      <% end %>
   </div>
 
 </div>

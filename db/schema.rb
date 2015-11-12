@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151106172025) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "description"
+    t.string   "text"
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
