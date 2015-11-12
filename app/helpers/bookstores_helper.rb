@@ -4,7 +4,7 @@ require 'json'
 module BookstoresHelper
 
 	def fetch_bookstore(param_uri)
-		puts "STEP 2"
+		puts "STEP 2 BOOK"
 		uri = URI(param_uri)
 		response = Net::HTTP.get(uri)
 		parsed = JSON.parse(response)
@@ -20,9 +20,11 @@ module BookstoresHelper
 	end
 
 	def find_stores(lat, lng)
-		puts "STEP 1"
+		puts "STEP 1 BOOK"
 		google_key = "AIzaSyASxafxwznhB7vSt8kPMYb88QMCzvRxpuU"
-		fetch_bookstore("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.952306899999996,-75.1695926&radius=400&types=book_store&key=#{google_key}")
+		puts "LATTTTTTTTT"
+		puts url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},-75.1695926&radius=400&types=book_store&key=#{google_key}"
+		fetch_bookstore(url)
 	end
 
 	def find_libs(lat, lng)
