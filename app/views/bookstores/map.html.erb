@@ -14,13 +14,14 @@
 <div class="row">
 	<div class="col-md-offset-2 col-md-8">
 		<h1>Bookstores</h1>
-		<%= @book_stores.each do |store| %>
-			<%= store %>
-			<br><br>
+		<% @book_stores.each do |store| %>
+			<%= store['name'] %>
+			<%= store['vicinity'] %>
+			<br><hr>
 		<% end %>
 
 		<h1>Libraries</h1>
-		<%= @libs.each do |library| %>
+		<% @libs.each do |library| %>
 			<%= library['name'] %>
 			<%= library['vicinity'] %>
 			<br><hr>
@@ -40,7 +41,6 @@
 	  	}, function(){
 	    if(navigator.geolocation)
 	    	navigator.geolocation.getCurrentPosition(displayOnMap);
-	    // if(gon.test)
 	    	navigator.geolocation.getCurrentPosition(send_data);
 	    markers = handler.addMarkers(<%= raw @hash.to_json %>);
 	    handler.bounds.extendWith(markers);
@@ -55,33 +55,18 @@
 		    infowindow: "You Are Here"
 		  });
 	  	handler.map.centerOn(marker);
-	  	console.log(position.coords.latitude, position.coords.longitude);
 		};
 
-		var send_data = (function() {
-	    var executed = false;
-	    return function () {
-        if (!executed) {
-        	console.log("testing....");
-          executed = true;
-					var form = document.createElement("form");
-					form.method = 'post';
-					form.action = '/submit_map';
-					var input = document.createElement('input');
-					input.type = "number";
-					input.name = "lat";
-					input.value = position.coords.latitude;
-					form.appendChild(input);
-					var input2 = document.createElement('input');
-					input2.type = "number";
-					input2.name = "lng";
-					input2.value = position.coords.longitude;
-					form.appendChild(input2);
-					form.submit();
-					console.log("testing to see if function works")
-        }
-	    };
-		})();
+		function send_data(position) {
+			var lat = position.coords.latitude;
+			var lng = position.coords.longitude;
+			var array = [lat, lng];
+			$.ajax({
+			        url : "/submit_map",
+			        type : "post",
+			        data : { data_value1: lat, data_value2: lng}
+    	});
+		}
 
 		// function send_data(position) {
 		// 	var form = document.createElement("form");
@@ -97,8 +82,15 @@
 		// 	input2.name = "lng";
 		// 	input2.value = position.coords.longitude;
 		// 	form.appendChild(input2);
+		// 	console.log(position.coords.latitude, position.coords.longitude);
 		// 	form.submit();
-		// 	console.log("testing send_data reached the end.")
+		// 	form.on('submit', function(e) {
+		// 		e.preventDefault();
+		// 	});
+		// 	console.log("testing send data reached the end.")
+		// 	return false;
 		// }
+		// return false;
 	});
+
 </script>

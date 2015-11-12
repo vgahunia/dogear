@@ -13,14 +13,11 @@ class BookstoresController < ApplicationController
   end
 
   def map
-    if !params[:lat].nil? && !params[:lng].nil?
-      puts params[:lat]
-      puts params[:lng]
-      gon.test = false
-      lat = params[:lat]
-      lng = params[:lng]
-    end
-
+    puts "======================"
+    puts params[:data_value1]
+    puts params[:data_value2]
+    lat = params[:data_value1]
+    lng = params[:data_value2]
     @book_stores = find_stores(lat, lng)
     @libs = find_libs(lat, lng)
     @location = params[:choice_location]
@@ -30,8 +27,9 @@ class BookstoresController < ApplicationController
       marker.lng(bookstore.longitude)
       marker.infowindow(bookstore.description)
     end
-    puts params[:lat]
-    puts params[:lng]
+    # respond_to do |format|
+    #     format.js   {}
+    # end
   end
 
   private
