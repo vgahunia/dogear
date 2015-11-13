@@ -1,6 +1,7 @@
 class BookstoresController < ApplicationController
   skip_before_action :verify_authenticity_token
   include BookstoresHelper
+  # respond_to :js, :html
 
   def new
   	@bookstore = Bookstore.new
@@ -23,11 +24,8 @@ class BookstoresController < ApplicationController
     else
       puts "LAT IS #{lat}"
       puts "LONG IS #{lng}"
-      redirect_to map({lat:lat, lng:lng})
+      render map({lat:lat, lng:lng})
     end
-
-    # lat, lng
-    # render 'map'
   end
 
   def map (options={})

@@ -1,12 +1,28 @@
 <%= render 'layouts/header' %>
-<h1>Users#show</h1>
-<p><%= @user.first_name %>, <%= @user.last_name %>, <%= @user.email %></p>
-<%= link_to "Edit your information", edit_user_path %>
+<h1><%= @user.first_name %> <%= @user.last_name %><h1>
+<h3><%= @user.email %></h3>
+<div>
+	<%= link_to "Edit your information", edit_user_path %>
+</div>
 
-<% if @user.books.any? %>
+<% if @user.favorites.any? %>
+	<h2>Books I Love (<%= @user.favorites.count %>)</h2>
 	<ol>
-		<% @user.books.each do |book| %>
-			<li><%= book.title %>(<% book.year %>), <%= book.author %></li>
+		<% @user.favorites.each do |favorite| %>
+			<% Book.where(id: favorite.book_id).each do |book| %>
+				<li><%= book.title %>(<%= book.year %>), <%= book.author %></li>
+			<% end %>
+		<% end %>
+	</ol>
+<% end %>
+
+<% if @user.unfinisheds.any? %>
+	<h2>Books I Just Couldn't Finish (<%= @user.unfinisheds.count %>)</h2>
+	<ol>
+		<% @user.unfinisheds.each do |unfinished| %>
+			<% Book.where(id: unfinished.book_id).each do |book| %>
+				<li><%= book.title %>(<%= book.year %>), <%= book.author %></li>
+			<% end %>
 		<% end %>
 	</ol>
 <% end %>

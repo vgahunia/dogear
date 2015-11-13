@@ -32,65 +32,33 @@
 
 <script>
 	$(document).ready(function(){
+		alert("Hell-ow");
 	  var handler = Gmaps.build('Google');
 	  handler.buildMap({ 
 	    provider: {
 	     minZoom: 10 ,
 	    },
 	    internal: {id: 'map'}
-	  	}, function(){
-	    if(navigator.geolocation)
+	  	}, 
+	  	function(){
 	    	navigator.geolocation.getCurrentPosition(displayOnMap);
-	    	navigator.geolocation.getCurrentPosition(send_data);
-	    markers = handler.addMarkers(<%= raw @hash.to_json %>);
-	    handler.bounds.extendWith(markers);
-	    handler.fitMapToBounds();
-	    handler.getMap().setZoom(15);
-	  });
+		    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+		    handler.bounds.extendWith(markers);
+		    handler.fitMapToBounds();
+		    handler.getMap().setZoom(15);
+		  });
 
 	  function displayOnMap(position){
 		  var marker = handler.addMarker({
-		    lat: <%= @lat %>,
-		    lng: <%= @lng %>,
+		  	lat: position.coords.latitude,
+		    lng: position.coords.longitude,
+		    // lat: <%= @lat %>,
+		    // lng: <%= @lng %>,
 		    infowindow: "You Are Here"
 		  });
 	  	handler.map.centerOn(marker);
 		};
 
-		function send_data(position) {
-			var lat = position.coords.latitude;
-			var lng = position.coords.longitude;
-			var array = [lat, lng];
-			$.ajax({
-			        url : "/submit_map",
-			        type : "post",
-			        data : { data_value1: lat, data_value2: lng}
-    	});
-		}
-
-		// function send_data(position) {
-		// 	var form = document.createElement("form");
-		// 	form.method = 'post';
-		// 	form.action = '/submit_map';
-		// 	var input = document.createElement('input');
-		// 	input.type = "number";
-		// 	input.name = "lat";
-		// 	input.value = position.coords.latitude;
-		// 	form.appendChild(input);
-		// 	var input2 = document.createElement('input');
-		// 	input2.type = "number";
-		// 	input2.name = "lng";
-		// 	input2.value = position.coords.longitude;
-		// 	form.appendChild(input2);
-		// 	console.log(position.coords.latitude, position.coords.longitude);
-		// 	form.submit();
-		// 	form.on('submit', function(e) {
-		// 		e.preventDefault();
-		// 	});
-		// 	console.log("testing send data reached the end.")
-		// 	return false;
-		// }
-		// return false;
 	});
 
 </script>

@@ -1,11 +1,56 @@
 <%= render 'layouts/header' %>
-<h3 class="home_link">Look up a book by title</h3>
 
-	<%= form_tag(books_index_path, :method=>"get") do %>
-      <%= text_field_tag(:choice_title) %>
-      <%= submit_tag("SELECT", :class=>"btn") %>
-  <% end %>
+<br>
+<div class="row">
+	<div class="col-md-offset-4 col-md-4">
+		<h3 class="home_link">Look up a book by title</h3>
+		<%= form_tag(books_index_path, :method=>"get") do %>
+	      <%= text_field_tag(:choice_title) %>
+	      <%= submit_tag("SELECT", :class=>"btn") %>
+	  <% end %>
+	</div>
+</div>
 
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+
+		<div class="col-lg-6">
+			<h3>Most Popular on DogEar</h3>
+			<ol>
+			<% Favorite.all.order("book_id desc").take(10).each do |favorite| %>
+				<h4><%= favorite.readers.count %></h4>
+				<% Book.where(id: favorite.book_id).each do |book| %>
+					<li>
+						<%= image_tag book.image_url %><br>
+						<%= book.title %><br>
+						<%= book.author %>
+					</li>
+					<hr>
+				<% end %>
+			<% end %>
+			</ol>
+		</div>
+
+		<div class="col-lg-6">
+			<h3>Least Popular on DogEar</h3>
+			<ol>
+			<% Unfinished.all.order("book_id desc").take(10).each do |unfinished| %>
+				<h4><%= unfinished.count %></h4>
+				<% Book.where(id: unfinished.book_id).each do |book| %>
+					<li>
+						<%= image_tag book.image_url %><br>
+						<%= book.title %><br>
+						<%= book.author %>
+					</li>
+					<hr>
+				<% end %>
+			<% end %>
+			</ol>
+		</div>
+
+	</div>
+</div>
+	
 
   
 

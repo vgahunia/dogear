@@ -10,10 +10,54 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 
-//= require bootstrap-sprockets
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+
+
+// document.getElementById("div").click(function(){
+//     alert("div");
+
+
+// });
+
+// // $( "#div" ).click(function() {
+// //     alert("div");
+// // });
+
+// $( ".stores" ).click(function() {
+//     alert("CLICK");
+// });
+
+// $('#stores').click(function(){
+
+
+//   // if(navigator.geolocation) {
+//   //   navigator.geolocation.getCurrentPosition(function(position) {
+//   //     var initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+//   //     send_data(position)
+//   //   }, function() {
+//   //     // handleNoGeolocation(browserSupportFlag);
+//   //   });
+//   // }
+
+
+
+//   //   function send_data(position) {
+//   //     var lat = position.coords.latitude;
+//   //     var lng = position.coords.longitude;
+//   //     var array = [lat, lng];
+//   //     $.ajax({
+//   //             url : "/submit_map",
+//   //             type : "post",
+//   //             data : { data_value1: lat, data_value2: lng}
+//   //     });
+//   //     // alert(lat + " and " + lng);
+
+//   //   }
+
+// });

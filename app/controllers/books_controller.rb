@@ -33,7 +33,22 @@ class BooksController < ApplicationController
   def share
     user = User.find(params[:user_id])
     book = Book.find(params[:book_id])
-    if user.books << book
+    x = Favorite.create(user_id: user.id, book_id: book.id)
+    if user.favorites << x
+      puts "ADDED THIS"
+      respond_to do |format|
+        format.js
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
+  def dislike
+    user = User.find(params[:user_id])
+    book = Book.find(params[:book_id])
+    x = Unfinished.create(user_id: user.id, book_id: book.id)
+    if user.unfinisheds << x
       puts "ADDED THIS"
       respond_to do |format|
         format.js
