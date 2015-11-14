@@ -9,7 +9,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    if current_user
+      flash[:danger] = "Dude, wake up. You already have an account."
+      redirect_to user_path(current_user)
+    elsif @user.save
       log_in @user
     	flash[:success] = "Guess what, booklover? You have an account! A bonafide account!"
       redirect_to @user

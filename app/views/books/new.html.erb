@@ -18,9 +18,9 @@
 			<h3>Most Popular on DogEar</h3>
 			<ol>
 			<% Favorite.all.order("book_id desc").take(10).each do |favorite| %>
-				<h4><%= favorite.readers.count %></h4>
 				<% Book.where(id: favorite.book_id).each do |book| %>
 					<li>
+						<%= book.readers.count %><br>
 						<%= image_tag book.image_url %><br>
 						<%= book.title %><br>
 						<%= book.author %>
@@ -35,9 +35,9 @@
 			<h3>Least Popular on DogEar</h3>
 			<ol>
 			<% Unfinished.all.order("book_id desc").take(10).each do |unfinished| %>
-				<h4><%= unfinished.count %></h4>
 				<% Book.where(id: unfinished.book_id).each do |book| %>
 					<li>
+						<%= book.haters.count %><br>
 						<%= image_tag book.image_url %><br>
 						<%= book.title %><br>
 						<%= book.author %>
