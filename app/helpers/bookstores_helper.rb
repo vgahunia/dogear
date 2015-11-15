@@ -29,8 +29,8 @@ module BookstoresHelper
 
 	def find_libs(lat, lng)
 		puts "STEP 1"
-		google_key = "AIzaSyASxafxwznhB7vSt8kPMYb88QMCzvRxpuU"
-		fetch_library("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9522408,-75.1695926&radius=400&types=library&key=#{google_key}")
+		google_key = "AIzaSyBaJtbomXSbXvFdo2AlDisHhhrjeipE398"
+		fetch_library("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9522408,-75.1695926&radius=400&types=library&key=AIzaSyBaJtbomXSbXvFdo2AlDisHhhrjeipE398")
 	end
 	
 end

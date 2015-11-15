@@ -1,19 +1,26 @@
 <%= render 'layouts/header_min' %>
-<h1>Log in</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+<div class="col-md-4 col-md-offset-4">
+    <div class="row" id="sign_in">
+    <div class="col-lg-6" id="signin1">
+      <h1>Log in</h1>
+      <div id="account">
+        <p>Don't have an account?</p> 
+        <p><%= link_to "Sign up here!", signup_path %></p>
+      </div>
+    </div>
+    <div class="col-lg-6" id="signin2">
+      <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-  </div>
+        <%= f.submit "Sign In", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+</div>
 </div>

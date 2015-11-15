@@ -18,6 +18,7 @@
 ================================= */
 
 #logo {
+	font-family: 'Petit Formal Script', cursive;
 	text-align: center;
 	background-color: $brown;
 	padding-top: 5px;
@@ -27,6 +28,7 @@
 		font-size: 3.2em;
 	}
 	h4 {
+		font-family: 'Glegoo', serif;
 		color: $lt_green;
 		margin-top: 5px;
 		margin-bottom: 10px;
@@ -42,8 +44,11 @@
 }
 
 #header_menu {
+	font-family: 'Glegoo', serif;
 	padding-left: 0;
 	background-color: $lt_green;
+	padding-top: 5px;
+	padding-bottom: 2px;
 	li {
 		list-style-type: none;
 		display: inline;
@@ -79,23 +84,34 @@
 	margin: 0 auto;
 }
 
+#column_container_4 {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+#column_container_8 {
+	padding-left: 0;
+	padding-right: 0;
+	border-left: 4px solid $green;
+}
+
 .box {
 	background-color: white;
 	height: 200px;
 	width: 100%;
 	// border-radius: 25px;
-	margin: 15px auto;
-	border-bottom: 4px solid $brown;
+	margin: 0 auto;
+	border-bottom: 4px solid $green;
 	a {
 		position: relative;
 		top: 35%;
-		color: $green;
+		color: $dark_red;
 	}
 	a:hover {
 		color: $red;
 		text-decoration: none;
-		border-top: 1px solid $lt_green;
-		border-bottom: 1px solid $lt_green;
+		border-top: 1px solid $green;
+		border-bottom: 1px solid $green;
 		font-size: 1.2em;
 	}
 	h1 {
@@ -105,15 +121,16 @@
 
 .box2 {
 	background-color: white;
+	font-family: 'Glegoo', serif;
 	height: 60px;
 	width: 100%;
 	// border-radius: 	25px;
-	margin: 15px auto;
-	border-bottom: 4px solid $red;
+	margin: 0 auto;
+	border-bottom: 4px solid $green;
 	a {
 		position: relative;
 		top: 25%;
-		color: $green;
+		color: $lt_green;
 		font-size: .8em;
 	}
 	a:hover {
@@ -126,7 +143,78 @@
 }
 
 #box3 {
-	height: 275px;
+	height: 280px;
 	background-color: $brown;
 	border: none;
+	border-bottom: 4px solid $green;
+}
+
+/*================================
+-------- SIGN IN / SIGN UP -------
+================================= */
+
+#sign_in {
+	margin-top: 20px;
+}
+
+#account {
+	margin-top: 10px;
+	p:first-child{
+		font-family: 'Petit Formal Script', cursive;
+		font-size: 1.1em;
+	}
+	p:last-child {
+		font-size: 1em;
+		a {
+			color: white;
+		}
+	}
+}
+
+#signin1 {
+	height: 180px;
+	padding-top: 15px;
+	padding-bottom: 30px;
+	text-align: center;
+	h1 {
+		color: $beige;
+	}
+	p {
+		color: $dark_red;
+		margin-bottom: 0;
+	}
+	background-color: $green;
+	// border-top: 4px solid white;
+	border-bottom: 14px solid $brown;
+}
+
+#signin2 {
+	height: 240px;
+	text-align: right;
+	label {
+		color: $dark_red;
+		padding-bottom: 0;
+		padding-top: 15px;
+		font-size: 1.4em;
+	}
+	input {
+		padding-top: 0;
+		color: $lt_green;
+		background-color: $brown;
+		text-align: right;
+	}
+	input:last-child {
+		font-family: 'Petit Formal Script', cursive;
+		text-align: center;
+		padding: 10px;
+		width: 100%;
+		font-size: 1.2em;
+		margin-top: 20px;
+		color: $beige;
+		background-color: $dark_red;
+		&:hover {
+			background-color: $red;
+			color:$lt_green;
+		}
+	}
 }
