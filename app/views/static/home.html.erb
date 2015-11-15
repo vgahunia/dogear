@@ -1,20 +1,28 @@
 
 <%= render 'layouts/header_min' %>
 <div class="row">
-	<div class="col-sm-offset-4 col-sm-4" id="home_menu_wrapper">
-		<ul id="home_menu">
-			<li>
-				<%= link_to "Log In", login_path %>
-			</li>
-			<li>
-				<%= link_to "Start an Account", signup_path %>
-			</li>
-			<li>
-				<%= link_to "Look up a book", books_new_path %>
-			</li>
-			<li>
-				<%= link_to "Find closest bookstore or library", bookstores_map_path %>
-			</li>
-		</ul>
+	<div class="col-sm-offset-3 col-sm-6" id="home_menu_wrapper">
+
+		<div class="row" id="home_menu">
+				<div class="col-lg-4">
+					<div class="box2">
+						<%= link_to "Log In", login_path %>
+					</div>
+					<div class="box2">
+						<%= link_to "Start an Account", signup_path %>
+					</div>
+					<div class="box" id="box3"></div>
+				</div>
+
+				<div class="col-lg-8">
+					<div class="box">
+						<%= link_to "Look up a book", books_new_path %>
+					</div>
+					<div class="box">
+						<%= link_to "Locate bookstores and libraries", bookstores_map_path %>
+					</div>
+				</div>
+				
+		</div>
 	</div>
 </div>
