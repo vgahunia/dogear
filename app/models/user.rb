@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base
 
-	has_many :favorite_books, through: :favorites, source: :book
+	has_many :favorite_books, -> { distinct }, through: :favorites, source: :book
 	has_many :favorites
 
-	has_many :hated_books, through: :unfinisheds, source: :book
+	has_many :hated_books, -> { distinct }, through: :unfinisheds, source: :book
 	has_many :unfinisheds
+
+	# validates_uniqueness_of :favorite
+	# validates_uniqueness_of :unfinished
 
 	before_save { self.email = email.downcase }
 	validates(:first_name, presence: true)
@@ -18,4 +21,8 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 	
+
+	def check_lists
+		
+	end
 end
