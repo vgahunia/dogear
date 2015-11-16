@@ -31,30 +31,38 @@ class BooksController < ApplicationController
   end
 
   def share
+    puts "SHARING BOOK"
+
     user = User.find(params[:user_id])
     book = Book.find(params[:book_id])
-    x = Favorite.create(user_id: user.id, book_id: book.id)
-    if user.favorites << x
-      puts "ADDED THIS"
-      respond_to do |format|
-        format.js
-      end
+
+    unless user.hated_books.include?(book)
+      puts "ADDING BOOK"
+      user.favorite_books << book
+      flash[:success] = "Your book was added"
+      redirect_to :back
     else
-      redirect_to root_path
+      flash[:danger] = "You have already stated that you could not finish this book."
+      @switch = false
+      redirect_to :back
     end
   end
 
   def dislike
+    puts "DISLIKING BOOK"
+
     user = User.find(params[:user_id])
     book = Book.find(params[:book_id])
-    x = Unfinished.create(user_id: user.id, book_id: book.id)
-    if user.unfinisheds << x
-      puts "ADDED THIS"
-      respond_to do |format|
-        format.js
-      end
+
+    unless user.favorite_books.include?(book)
+      puts "HATING BOOK"
+      user.hated_books << book
+      flash[:success] = "Your book was added"
+      redirect_to :back
     else
-      redirect_to root_path
+      flash[:danger] = "You have already listed this book as a favorite."
+      @switch = false
+      redirect_to :back
     end
   end
 

@@ -19,7 +19,36 @@
 			<ol>
 			<% Book.all.order("favorites_count desc").take(10).each do |book| %>
 					<li>
-						<%= book.readers.count %><br><%= book.favorites_count %>
+						<%= book.favorites_count %>
+						<%= image_tag book.image_url %><br>
+						<%= book.title %><br>
+						<%= book.author %>
+
+						<% if logged_in? %>
+						<div id="book_message">
+						<%= link_to "Add to My Flavorites", share_path(user_id: @current_user.id, book_id: book.id), method: :post, class: "favorite" %>
+						</div>
+						<% if @switch %>
+							<%= link_to "switch lists", root_path %>
+						<% end %>
+						<br>
+						<div id="book_message">
+						<%= link_to "I couldn't finish this", dislike_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "unfinished" %>
+						</div>
+						<br>
+					<% end %>
+				</li>
+				<hr>
+			<% end %>
+			</ol>
+		</div>
+
+		<div class="col-lg-6">
+			<h3>Least Popular on DogEar</h3>
+			<ol>
+			<% Book.all.order("unfinisheds_count desc").take(10).each do |book| %>
+					<li>
+						<%= book.unfinisheds_count %><br>
 						<%= image_tag book.image_url %><br>
 						<%= book.title %><br>
 						<%= book.author %>
@@ -41,23 +70,6 @@
 			</ol>
 		</div>
 
-		<div class="col-lg-6">
-			<h3>Least Popular on DogEar</h3>
-			<ol>
-			<% Unfinished.all.order("book_id desc").take(10).each do |unfinished| %>
-				<% Book.where(id: unfinished.book_id).each do |book| %>
-					<li>
-						<%= book.haters.count %><br>
-						<%= image_tag book.image_url %><br>
-						<%= book.title %><br>
-						<%= book.author %>
-					</li>
-					<hr>
-				<% end %>
-			<% end %>
-			</ol>
-		</div>
-
 	</div>
 </div>
 
@@ -73,7 +85,6 @@ $(document).ready(function() {
 		$(this).parent().text("Sorry, you didn't like this.");
 	})
 
-	// $('#book_message').text("WOOF!... woof.");
 });
 </script>
 	

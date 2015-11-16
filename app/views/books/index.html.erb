@@ -21,7 +21,7 @@
 			
 			<% if logged_in? %>
 				<div id="book_message">
-				<%= link_to "Add to My Favorites", share_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "favorite" %>
+				<%= link_to "Add to My Flavorites", share_path(user_id: @current_user.id, book_id: book.id), method: :post, class: "favorite" %>
 				</div>
 				<br>
 				<div id="book_message">

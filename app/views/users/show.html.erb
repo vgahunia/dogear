@@ -6,18 +6,19 @@
 </div>
 
 <% if @user.favorites.any? %>
-	<h2>Books I Love (<%= @user.favorites.count %>)</h2>
+	<h2>Books I Love (<%= @user.favorite_books.count %>)</h2>
 	<ol>
 		<% @user.favorite_books.each do |favorite| %>
 			<% Book.where(id: favorite.id).each do |book| %>
-				<li><%= book.title %>(<%= book.year %>), <%= book.author %></li>
+				<li><%= book.title %>(<%= book.year %>), <%= book.author %>
+				</li>
 			<% end %>
 		<% end %>
 	</ol>
 <% end %>
 
 <% if @user.hated_books.any? %>
-	<h2>Books I Just Couldn't Finish (<%= @user.unfinisheds.count %>)</h2>
+	<h2>Books I Just Couldn't Finish (<%= @user.hated_books.count %>)</h2>
 	<ol>
 		<% @user.hated_books.each do |unfinished| %>
 			<% Book.where(id: unfinished.id).each do |book| %>
