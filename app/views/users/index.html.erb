@@ -16,14 +16,14 @@
 		      <% if user.favorite_books.empty? %>
 		      	<span class="favorite_book">None Selected</span>
 		      <% else %>
-		      	<span class="favorite_book"><%= user.favorite_books.first.title %></span>	
+		      	<span class="favorite_book"><%= user.favorite_books.first.title %> (<%= user.favorite_books.first.year %>), by <%= user.favorite_books.first.author %></span>	
 		      <% end %>
 		      <hr class="dotted_line">
 		      	Least Favorite Book:
 		      <% if user.hated_books.empty? %>
 		      	<span class="favorite_book">None Selected</span>
 		      <% else %>
-		      	<span class="favorite_book"><%= user.hated_books.first.title %></span>
+		      	<span class="favorite_book"><%= user.hated_books.first.title %> (<%= user.hated_books.first.year %>), by <%= user.hated_books.first.author %></span>
 		      <% end %>
 		    </li>
 		  <hr class="red_line">
@@ -33,3 +33,5 @@
 	</div>
 </div>
 </div>
+
+

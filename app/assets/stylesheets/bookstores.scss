@@ -8,9 +8,14 @@
 ----------- GENERAL --------------
 ================================= */
 
+#body_full {
+	height: 100%;
+}
+
 .container-fluid {
 	background-color: $beige;
 	font-family: 'Glegoo', serif;
+	height: 100%;
 }
 
 .red_line {
@@ -24,7 +29,7 @@
 }
 
 /*================================
------------- HEADER --------------
+--------- HEADER/FOOTER -----------
 ================================= */
 
 #login_username {
@@ -99,6 +104,35 @@
 	}
 }
 
+footer {
+	background-color: $dark_red;
+	color: $beige;
+	padding: 10px;
+	padding-bottom: 0;
+	margin-top: 160px;
+	font-size: .8em;
+}
+
+.align_right {
+	margin-right: 3%;
+	float: right;
+}
+
+.align_left {
+	float: left;
+	margin-left: 3%;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -4em;
+}
+
+.footer, .push {
+	height: 5em;
+}
 /*================================
 -------------- HOME --------------
 ================================= */
@@ -298,4 +332,29 @@
 
 .favorite_book {
 	color: $green;
+}
+
+/*================================
+----------- MEDIA QUERIES ----------
+================================= */
+
+@media only screen and (max-width: 640px) {
+  
+	#header_menu {
+		padding-top: 10px;
+		ul {
+			padding-left: 0;
+		}
+		li {
+			&:first-child {
+				border-top: 10px solid $dark_red;
+			}
+			padding: 5px;
+			font-size: 1em;
+			list-style-type: none;
+			display: block;
+			border-bottom: 1px solid $dark_red;
+		}
+	}
+
 }
