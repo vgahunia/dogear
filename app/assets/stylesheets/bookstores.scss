@@ -16,6 +16,7 @@
 	background-color: $beige;
 	font-family: 'Glegoo', serif;
 	height: 100%;
+	padding-bottom: 70px;
 }
 
 .red_line {
@@ -222,6 +223,10 @@ footer {
 -------- SIGN IN / SIGN UP -------
 ================================= */
 
+.sign_in_wrapper {
+	margin-bottom: 40px;
+}
+
 #sign_in {
 	margin-top: 20px;
 }
@@ -333,6 +338,26 @@ footer {
 .favorite_book {
 	color: $green;
 }
+
+
+/*================================
+----------- USERS INDEX ----------
+================================= */
+
+#profile_info {
+	margin-top: 30px;
+	text-align: center;
+	background-color: $green;
+	color: $beige;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.profile_books {
+	text-align: center;
+}
+
+
 
 /*================================
 ----------- MEDIA QUERIES ----------
