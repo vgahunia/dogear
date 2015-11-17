@@ -2,7 +2,9 @@
 <h1><%= @user.first_name %> <%= @user.last_name %><h1>
 <h3><%= @user.email %></h3>
 <div>
-	<%= link_to "Edit your information", edit_user_path %>
+	<% if current_user.id == @user.id %>
+		<%= link_to "Edit your information", edit_user_path %>
+	<% end %>
 </div>
 
 <% if @user.favorites.any? %>
