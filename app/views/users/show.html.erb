@@ -23,7 +23,15 @@
 			<ol>
 				<% @user.favorite_books.each do |favorite| %>
 					<% Book.where(id: favorite.id).each do |book| %>
-						<li><%= book.title %>(<%= book.year %>), <%= book.author %>
+						<li>
+							<div id="rankings">
+								<%= image_tag book.image_url %>
+								<br><br>
+								<%= book.title %><br>
+								(<%= book.year %>)
+								<br><span class="smaller"><%= book.author %></span>
+							</div>
+							<hr class="red_line">
 						</li>
 					<% end %>
 				<% end %>
@@ -32,11 +40,20 @@
 	</div>
 	<div class="col-lg-6 profile_books">	
 		<% if @user.hated_books.any? %>
-			<h2>Books I Just Couldn't Finish<br> (<%= @user.hated_books.count %>)</h2>
+			<h2>Books I Couldn't Finish<br> (<%= @user.hated_books.count %>)</h2>
 			<ol>
 				<% @user.hated_books.each do |unfinished| %>
 					<% Book.where(id: unfinished.id).each do |book| %>
-						<li><%= book.title %>(<%= book.year %>), <%= book.author %></li>
+						<li>
+							<div id="rankings">
+								<%= image_tag book.image_url %>
+								<br><br>
+								<%= book.title %><br>
+								(<%= book.year %>) 
+								<br><span class="smaller"><%= book.author %></span>
+							</div>
+							<hr class="red_line">
+						</li>
 					<% end %>
 				<% end %>
 			</ol>

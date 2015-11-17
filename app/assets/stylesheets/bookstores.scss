@@ -20,7 +20,7 @@
 }
 
 .red_line {
-	border-color: $brown;
+	border-color: $dark_red;
 }
 
 .dotted_line {
@@ -345,7 +345,7 @@ footer {
 
 
 /*================================
------------ USERS INDEX ----------
+----------- USERS SHOW -----------
 ================================= */
 
 #profile_info {
@@ -362,6 +362,45 @@ footer {
 
 .profile_books {
 	text-align: center;
+	// ol {
+	// 	margin-left: 0;
+	// 	list-style-position: none;
+	// 	font-family: 'Petit Formal Script', cursive;
+	// }
+	// ol.custom > li:before {
+	//   content: counter(customlistcounter) " ";
+	//   font-weight: bold;
+	//   float: left;
+	//   width: 3em;
+	// }
+	// ol.custom > li {
+	// 	counter-increment: customlistcounter;
+	// }
+	// ol.custom:first-child {
+ //  	counter-reset: customlistcounter;
+	// }
+	ol {
+		padding-left: 0;
+		text-align: left;
+		list-style-position: inside;
+		font-family: 'Petit Formal Script', cursive;
+		li {
+			font-size: 8em;
+			color: $dark_red;
+			#rankings {
+				text-align: center;
+				font-family: 'Glegoo', serif;
+				font-size: 16px;
+				padding-left: 0;
+				margin-left: 0;
+				color: $green;
+				.smaller {
+					font-size: 14px;
+					color: $brown;
+				}
+			}
+		}
+	}
 }
 
 

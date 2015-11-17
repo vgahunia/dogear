@@ -14,7 +14,7 @@
 <div class="row">
 	<div class="col-md-offset-2 col-md-8">
 		<h1>Bookstores</h1>
-		<%= @book_stores.each do |store| %>
+		<% @book_stores.each do |store| %>
 			<%= store['name'] %>
 			<%= store['vicinity'] %>
 			<br><hr>
