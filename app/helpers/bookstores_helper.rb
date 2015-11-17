@@ -21,7 +21,7 @@ module BookstoresHelper
 
 	def find_stores(lat, lng)
 		puts "STEP 1 BOOK"
-		google_key = "AIzaSyASxafxwznhB7vSt8kPMYb88QMCzvRxpuU"
+		google_key = "AIzaSyBaJtbomXSbXvFdo2AlDisHhhrjeipE398"
 		puts "LATTTTTTTTT"
 		puts url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},-75.1695926&radius=400&types=book_store&key=#{google_key}"
 		fetch_bookstore(url)

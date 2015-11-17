@@ -1,14 +1,14 @@
-
+  // alert("testing");
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-      send_data(position)
+      if (position) {
+          send_data(position)
+      }
     }, function() {
       // handleNoGeolocation(browserSupportFlag);
     });
   }
-
-
 
   	function send_data(position) {
 			var lat = position.coords.latitude;

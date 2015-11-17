@@ -16,14 +16,14 @@ Rails.application.routes.draw do
 
   post 'books/store'
 
-  get 'bookstores/map' => 'bookstores#find_coordinates'
-  get 'bookstores/load_map' => 'bookstores#map', as: :map
+  get 'bookstores/coord' => 'bookstores#find_coordinates', as: :coordinates
+  get 'bookstores/map' => 'bookstores#map', as: :map
 
   get 'users/index'
 
   get 'users/show'
 
-  post '/submit_map'  => 'bookstores#find_coordinates'
+  post '/submit_map'  => 'bookstores#map'
   get 'signup' => 'users#new'
   get   'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

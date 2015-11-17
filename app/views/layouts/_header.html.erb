@@ -18,7 +18,7 @@
 	<nav id="header_menu" class="row">
 		<ul>
 			<li><%= link_to "Search Books", books_new_path %></li>
-			<li><%= link_to "Search Bookstores", bookstores_map_path, remote: true %></li>
+			<li><%= link_to "Search Bookstores", '#', id: "stores" %></li>
 			<% if logged_in? %>
 				<li><%= link_to "My Profile", current_user %></li>
 				<li><%= link_to "Member List", users_path %></li>
