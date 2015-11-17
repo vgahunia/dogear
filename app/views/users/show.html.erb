@@ -19,8 +19,9 @@
 	<div class="row">
 	<div class="col-lg-6 profile_books">
 		<% if @user.favorites.any? %>
-			<h2>Books I Love<br> (<%= @user.favorite_books.count %>)</h2>
-			<ol>
+			<h2>Books I Love<br> (<%= @user.favorite_books.count %>)
+			</h2>
+			<ol class="big_number">
 				<% @user.favorite_books.each do |favorite| %>
 					<% Book.where(id: favorite.id).each do |book| %>
 						<li>
@@ -40,8 +41,8 @@
 	</div>
 	<div class="col-lg-6 profile_books">	
 		<% if @user.hated_books.any? %>
-			<h2>Books I Couldn't Finish<br> (<%= @user.hated_books.count %>)</h2>
-			<ol>
+			<h2>Books I Don't<br> (<%= @user.hated_books.count %>)</h2>
+			<ol class="big_number">
 				<% @user.hated_books.each do |unfinished| %>
 					<% Book.where(id: unfinished.id).each do |book| %>
 						<li>
