@@ -394,10 +394,72 @@ footer {
 
 .smaller {
 	font-size: 14px;
-	color: $brown;
+	color: $red;
 }
 
+.smaller2 {
+	font-size: 12px;
+	color: $red;
+}
 
+#book_lookup {
+	text-align: center;
+	background-color: $dark_red;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	h3 {
+		color: $beige;
+	}
+	input {
+		margin-bottom: 10px;
+	}
+	input:last-child {
+		background-color: $brown;
+		color: $beige;
+		&:hover {
+			color: $lt_green;
+		}
+	}
+	#choice_title {
+		width: 300px;
+	}
+}
+
+.dogear_lists {
+	h2 {
+		text-align: center;
+		color: $green;
+		padding-bottom: 20px;
+		width: 220px;
+		margin: 0 auto;
+		border-bottom: 1px solid $lt_green;
+	}
+}
+
+.favs_not {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.smaller3{
+	font-size: 14px;
+	background-color: $brown;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	border-bottom: 10px solid $dark_red;
+	a {
+		color: $beige;
+	}
+	a:hover {
+		color: $lt_green;
+		text-decoration: none;
+	}
+}
+
+#divider {
+	border-right: 1px solid $brown;
+}
 
 
 /*================================

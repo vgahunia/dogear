@@ -2,11 +2,11 @@
 
 <br>
 <div class="row">
-	<div class="col-md-offset-4 col-md-4">
-		<h3 class="home_link">Look up a book by title</h3>
+	<div class="col-md-offset-4 col-md-4" id="book_lookup">
+		<h3>Search by title or author</h3>
 		<%= form_tag(books_index_path, :method=>"get") do %>
-	      <%= text_field_tag(:choice_title) %>
-	      <%= submit_tag("SELECT", :class=>"btn") %>
+	      <%= text_field_tag(:choice_title) %><br>
+	      <%= submit_tag("Search", :class=>"btn") %>
 	  <% end %>
 	</div>
 </div>
@@ -14,66 +14,68 @@
 <div class="row">
 	<div class="col-md-offset-2 col-md-8">
 
-		<div class="col-lg-6">
-			<h3>Most Popular on DogEar</h3>
+		<div class="col-lg-6 dogear_lists" id="divider">
+			<h2>Most Popular on DogEar</h2>
 			<ol class="big_number">
 			<% Book.all.order("favorites_count desc").take(10).each do |book| %>
 				<li>
 					<div id="rankings">
 						<%= image_tag book.image_url %>
 						<br><br>
-						<%= book.favorites_count %><br>
+						<%= book.favorites_count %> <span class="smaller2">times on Favorites Lists</span><br>
 						<%= book.title %><br>
 						(<%= book.year %>)
 						<br><span class="smaller"><%= book.author %></span>
 					</div>
 					
-					<% if logged_in? %>
-						<div id="book_message" class="smaller">
-							<%= link_to "Add to My Flavorites", share_path(user_id: @current_user.id, book_id: book.id), method: :post, class: "favorite" %>
+					<div class="row">	
+							<% if logged_in? %>
+								<div class="col-sm-12 favs_not">
+								<div id="book_message" class="smaller3 col-sm-6">
+									<%= link_to "Add to My Favorites", share_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "favorite" %>
+								</div>
+								<div id="book_message" class="smaller3 col-sm-6">
+									<%= link_to "I couldn't finish this", dislike_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "unfinished" %>
+								</div>
+								<hr class="red_line">
+								</div>
+							<% end %>
 						</div>
-						<% if @switch %>
-							<%= link_to "switch lists", root_path %>
-						<% end %>
-						<br>
-						<div id="book_message" class="smaller">
-							<%= link_to "I couldn't finish this", dislike_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "unfinished" %>
-						</div>
-						<br>
-					<% end %>
-				</li>
-				<hr class="red_line">
+
+					</li>
 			<% end %>
 			</ol>
 		</div>
 
-		<div class="col-lg-6">
-			<h3>Least Popular on DogEar</h3>
+		<div class="col-lg-6 dogear_lists">
+			<h2>Least Popular on DogEar</h2>
 			<ol class="big_number">
 			<% Book.all.order("unfinisheds_count desc").take(10).each do |book| %>
 					<li>
 						<div id="rankings">
-						<%= image_tag book.image_url %>
-						<br><br>
-						<%= book.unfinisheds_count %><br>
-						<%= book.title %><br>
-						(<%= book.year %>)
-						<br><span class="smaller"><%= book.author %></span>
-					</div>
-					<div>	
-						<% if logged_in? %>
-							<div id="book_message" class="smaller">
-							<%= link_to "Add to My Favorites", share_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "favorite" %>
-							</div>
-							<br>
-							<div id="book_message" class="smaller">
-							<%= link_to "I couldn't finish this", dislike_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "unfinished" %>
-							</div>
-						<br>
-						<% end %>
-					</div>
+							<%= image_tag book.image_url %>
+							<br><br>
+							<%= book.unfinisheds_count %> <span class="smaller2">times on Unfinished Lists</span><br>
+							<%= book.title %><br>
+							(<%= book.year %>)
+							<br><span class="smaller"><%= book.author %></span>
+						</div>
+
+						<div class="row">	
+							<% if logged_in? %>
+								<div class="col-sm-12 favs_not">
+								<div id="book_message" class="smaller3 col-sm-6">
+									<%= link_to "Add to My Favorites", share_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "favorite" %>
+								</div>
+								<div id="book_message" class="smaller3 col-sm-6">
+									<%= link_to "I couldn't finish this", dislike_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "unfinished" %>
+								</div>
+								<hr class="red_line">
+								</div>
+							<% end %>
+						</div>
+
 					</li>
-					<hr class="red_line">
 			<% end %>
 			</ol>
 		</div>
@@ -81,20 +83,20 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-$(document).ready(function() {
-	// alert("Hi");
+// <script type="text/javascript">
+// $(document).ready(function() {
+// 	// alert("Hi");
 
-	$('.favorite').click(function() {
-		$(this).parent().text("Added to Favorites");
-	})
+// 	$('.favorite').click(function() {
+// 		$(this).parent().text("Added to Favorites");
+// 	})
 
-	$('.unfinished').click(function() {
-		$(this).parent().text("Sorry, you didn't like this.");
-	})
+// 	$('.unfinished').click(function() {
+// 		$(this).parent().text("Sorry, you didn't like this.");
+// 	})
 
-});
-</script>
+// });
+// </script>
 	
 
   
