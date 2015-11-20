@@ -106,7 +106,7 @@ footer {
 	color: $green;
 	padding: 10px;
 	padding-bottom: 0;
-	margin-top: 200px;
+	margin-top: 300px;
 	font-size: .8em;
 }
 
@@ -120,16 +120,6 @@ footer {
 	margin-left: 3%;
 }
 
-.wrapper {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -4em;
-}
-
-.footer, .push {
-	height: 5em;
-}
 /*================================
 -------------- HOME --------------
 ================================= */
@@ -230,38 +220,38 @@ footer {
 		color: white;
 		margin-bottom: 0;
 	}
-	background-color: white;
-	border: 4px solid white;
-	border-radius: 25px;
 }
 
 #signin2 {
 	height: 240px;
 	text-align: right;
 	label {
-		color: $dark_red;
+		color: white;
 		padding-bottom: 0;
 		padding-top: 15px;
 		font-size: 1.4em;
 	}
 	input {
 		padding-top: 0;
-		color: $lt_green;
-		background-color: $brown;
+		color: $green;
+		background-color: white;
 		text-align: right;
+		border-color: white;
 	}
 	input:last-child {
 		font-family: 'Petit Formal Script', cursive;
 		text-align: center;
-		padding: 10px;
 		width: 100%;
-		font-size: 1.2em;
-		margin-top: 20px;
-		color: $beige;
-		background-color: $dark_red;
+		font-size: 2em;
+		margin-top: 5px;
+		color: white;
+		background-color: $green;
+		border: none;
 		&:hover {
-			background-color: $red;
-			color:$lt_green;
+			padding: 0;
+			border: 1px solid white;
+			background-color: $green;
+			color: white;
 		}
 	}
 }
@@ -448,13 +438,13 @@ footer {
 		}
 		li {
 			&:first-child {
-				border-top: 10px solid $dark_red;
+				border-top: 10px solid white;
 			}
 			padding: 5px;
 			font-size: 1em;
 			list-style-type: none;
 			display: block;
-			border-bottom: 1px solid $dark_red;
+			border-bottom: 1px solid white;
 		}
 	}
 
