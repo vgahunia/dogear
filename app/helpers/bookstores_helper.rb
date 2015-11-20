@@ -23,14 +23,14 @@ module BookstoresHelper
 		puts "STEP 1 BOOK"
 		google_key = "AIzaSyBaJtbomXSbXvFdo2AlDisHhhrjeipE398"
 		puts "LATTTTTTTTT"
-		puts url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},-75.1695926&radius=400&types=book_store&key=#{google_key}"
+		puts url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{lng}&radius=2800&types=book_store&key=#{google_key}"
 		fetch_bookstore(url)
 	end
 
 	def find_libs(lat, lng)
 		puts "STEP 1"
 		google_key = "AIzaSyBaJtbomXSbXvFdo2AlDisHhhrjeipE398"
-		fetch_library("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9522408,-75.1695926&radius=400&types=library&key=AIzaSyBaJtbomXSbXvFdo2AlDisHhhrjeipE398")
+		fetch_library("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{lng}&radius=4800&types=library&key=AIzaSyBaJtbomXSbXvFdo2AlDisHhhrjeipE398")
 	end
 	
 end
