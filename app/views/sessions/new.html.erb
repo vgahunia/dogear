@@ -3,14 +3,8 @@
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
     <div class="row" id="sign_in">
-    <div class="col-lg-6" id="signin1">
-      <h1>Log in</h1>
-      <div id="account">
-        <p>Don't have an account?</p> 
-        <p><%= link_to "Sign up here!", signup_path %></p>
-      </div>
-    </div>
-    <div class="col-lg-6" id="signin2">
+    <div class="col-lg-offset-3 col-lg-6" id="signin2">
+      <h1>Sign in</h1>
       <%= form_for(:session, url: login_path) do |f| %>
 
         <%= f.label :email %>
@@ -18,8 +12,9 @@
 
         <%= f.label :password %>
         <%= f.password_field :password, class: 'form-control' %>
-
-        <%= f.submit "Sign In", class: "btn btn-primary" %>
+        <div class="signin_button">
+          <%= f.submit "Woof!", class: "btn btn-primary", id: "dogear_button" %>
+      </div>
       <% end %>
     </div>
 </div>

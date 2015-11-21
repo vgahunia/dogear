@@ -66,10 +66,10 @@
 		font-size: 3.2em;
 	}
 	h4 {
-		font-family: 'Glegoo', serif;
+		font-family: 'Petit Formal Script', cursive;
 		margin-top: 5px;
 		margin-bottom: 10px;
-		font-size: .8em;
+		font-size: .9em;
 	}
 	a {
 		color: white;
@@ -81,11 +81,15 @@
 }
 
 #header_menu {
-	font-family: 'Petit Formal Script', cursive;
+	font-family: 'Glegoo', serif;
 	padding-left: 0;
 	// background-color: $lt_green;
 	padding-top: 5px;
 	padding-bottom: 2px;
+	border-bottom: 1px solid white;
+	ul {
+		padding-left: 0;
+	}
 	li {
 		font-size: 1.4em;
 		list-style-type: none;
@@ -133,14 +137,13 @@ footer {
 }
 
 #home_menu {
-	// margin: 0 auto;
+	height: 300px;
 }
 
 .box {
 	width: 100%;
 	// border-radius: 25px;
-	margin: 0 auto;
-	border-bottom: 4px solid white;
+	margin: 40px auto;
 	font-size: 1.4em;
 	a {
 		color: white;
@@ -154,26 +157,6 @@ footer {
 	}
 	h1 {
 		margin: 0;
-	}
-}
-
-.box2 {
-	font-family: 'Glegoo', serif;
-	height: 60px;
-	width: 100%;
-	// border-radius: 	25px;
-	margin: 0 auto;
-	border-bottom: 2px solid white;
-	a {
-		color: white;
-		position: relative;
-		top: 25%;
-		font-size: .8em;
-	}
-	a:hover {
-		color: white;
-		text-decoration: none;
-		font-size: 1em;
 	}
 }
 
@@ -225,6 +208,9 @@ footer {
 #signin2 {
 	height: 240px;
 	text-align: right;
+	h1 {
+		text-align: center;
+	}
 	label {
 		color: white;
 		padding-bottom: 0;
@@ -241,19 +227,22 @@ footer {
 	input:last-child {
 		font-family: 'Petit Formal Script', cursive;
 		text-align: center;
-		width: 100%;
+		margin: 10 auto;
+		width: 100px;
 		font-size: 2em;
-		margin-top: 5px;
+		margin-top: 25px;
 		color: white;
+		padding: 5px;
 		background-color: $green;
-		border: none;
 		&:hover {
-			padding: 0;
-			border: 1px solid white;
-			background-color: $green;
-			color: white;
+			background-color: white;
+			color: $green;
 		}
 	}
+}
+
+.signin_button {
+	text-align: center;
 }
 
 .space {

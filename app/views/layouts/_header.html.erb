@@ -3,7 +3,7 @@
 	<% if logged_in? %>
 		<p>
 			<span id="header_hi">Welcome, <%= @current_user.first_name %></span>
-			<span id="logout"><%= link_to "Log Out", logout_path %></span>
+			<span id="logout"><%= link_to "Sign Out", logout_path %></span>
 		</p>
 	<% end %>
 </div>
@@ -23,8 +23,8 @@
 				<li><%= link_to "My Profile", current_user %></li>
 				<li><%= link_to "Member List", users_path %></li>
 			<% else %>
-				<li><%= link_to "Log in", login_path %></li>
-				<li><%= link_to "Start an Account", signup_path %></li>
+				<li><%= link_to "Sign in", login_path %></li>
+				<li><%= link_to "Sign Up", signup_path %></li>
 			<% end %>
 		</ul>
 	</nav>
