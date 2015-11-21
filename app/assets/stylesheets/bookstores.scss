@@ -317,11 +317,11 @@ footer {
 	margin-top: 30px;
 	text-align: center;
 	h2 {
-		color: $dark_red;
+		color: white;
 		padding-bottom: 20px;
 		width: 300px;
 		margin: 10px auto;
-		border-bottom: 2px solid $lt_green;
+		border-bottom: 2px solid white;
 	}
 }
 
@@ -332,7 +332,7 @@ footer {
 	font-family: 'Petit Formal Script', cursive;
 	li {
 		font-size: 8em;
-		color: $dark_red;
+		color: white;
 	}
 }
 
@@ -342,35 +342,37 @@ footer {
 	font-size: 16px;
 	padding-left: 0;
 	margin-left: 0;
-	color: $green;
+	color: white;
 }
 
 .smaller {
 	font-size: 14px;
-	color: $red;
+	color: white;
 }
 
 .smaller2 {
 	font-size: 12px;
-	color: $red;
+	color: white;
 }
 
 #book_lookup {
 	text-align: center;
-	background-color: $dark_red;
+	background-color: white;
 	padding-bottom: 10px;
 	margin-bottom: 20px;
 	h3 {
-		color: $beige;
+		color: $green;
 	}
 	input {
 		margin-bottom: 10px;
+		background-color: $green;
+		color: white;
 	}
 	input:last-child {
-		background-color: $brown;
-		color: $beige;
+		background-color: $green;
+		color: white;
 		&:hover {
-			color: $lt_green;
+			color: $dark_red;
 		}
 	}
 	#choice_title {
@@ -381,11 +383,11 @@ footer {
 .dogear_lists {
 	h2 {
 		text-align: center;
-		color: $green;
+		color: white;
 		padding-bottom: 20px;
 		width: 220px;
 		margin: 0 auto;
-		border-bottom: 1px solid $lt_green;
+		border-bottom: 1px solid white;
 	}
 }
 
@@ -397,21 +399,25 @@ footer {
 
 .smaller3{
 	font-size: 14px;
-	background-color: $brown;
+	background-color: white;
 	padding-bottom: 5px;
 	padding-top: 5px;
 	border-bottom: 10px solid $dark_red;
 	a {
-		color: $beige;
+		color: $green;
 	}
 	a:hover {
-		color: $lt_green;
+		background-color: $dark_red;
+		color: white;
 		text-decoration: none;
+	}
+	&:first-child {
+		border-right: 1px solid $dark_red;
 	}
 }
 
 #divider {
-	border-right: 1px solid $brown;
+	border-right: 1px solid white;
 }
 
 
