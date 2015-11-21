@@ -343,6 +343,9 @@ footer {
 	padding-left: 0;
 	margin-left: 0;
 	color: white;
+	img {
+		border: 3px solid white;
+	}
 }
 
 .smaller {
@@ -360,6 +363,10 @@ footer {
 	background-color: white;
 	padding-bottom: 10px;
 	margin-bottom: 20px;
+	.searched {
+		color: $dark_red;
+		font-size: 1.9em;
+	}
 	h3 {
 		color: $green;
 	}
@@ -418,6 +425,10 @@ footer {
 
 #divider {
 	border-right: 1px solid white;
+}
+
+#book_message {
+	color: $red;
 }
 
 

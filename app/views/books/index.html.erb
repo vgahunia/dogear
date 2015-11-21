@@ -1,43 +1,57 @@
 <%= render 'layouts/header' %>
 
-<% if @book %>
-	<h1>Search Matches for <%= @book.upcase %></h1>
-<% else %>
-	<h1>Search for a book</h1>
-<% end %>
-
-<div class="list">
-	<% if !@books.empty? %>
-		<ol>
-		<% @book_list.each do |book| %>
-			<li>
-				<p>
-					<b><%= book.title %></b>
-					<b>(<%= book.year %>)</b>
-					<b><%= book.author %></b>
-					<b><%= image_tag book.image_url %></b>
-					<b><%= book.id %>,<%= book.gr_id %></b>
-				</p>
-			
-			<% if logged_in? %>
-				<div id="book_message">
-				<%= link_to "Add to My Flavorites", share_path(user_id: @current_user.id, book_id: book.id), method: :post, class: "favorite" %>
-				</div>
-				<br>
-				<div id="book_message">
-				<%= link_to "I couldn't finish this", dislike_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "unfinished" %>
-				</div>
-				<br>
-			<% end %>
-
-			</li>
+<div class="row">
+	<div class="col-md-offset-4 col-md-4" id="book_lookup">
+		<% if @book %>
+			<h3>Search Matches for:</h3>>
+			<span class="searched"><%= @book.upcase %></span>
+		<% else %>
+			<h1>Search for a book</h1>
 		<% end %>
-		</ol>
-			<hr>
-	<% else %>
-		<ul>
-			<li>Sorry, no listings found for your selection.</li>
-		</ul>
-	<% end %>
+	</div>
+</div>
 
+<div class="row">
+<div class="col-md-offset-3 col-md-6">
+
+	<div class="list">
+		<% if !@books.empty? %>
+			<ol class="big_number">
+			<% @book_list.each do |book| %>
+				<li>
+					<div id="rankings">
+						<%= image_tag book.image_url %>
+						<br><br>
+						<%= book.title %>
+						(<%= book.year %>)<br>
+						<span class="smaller"><%= book.author %></span>
+						<%= book.id %>,<%= book.gr_id %>
+					</div>
+			
+					<div class="row">	
+							<% if logged_in? %>
+								<div class="col-sm-12 favs_not">
+								<div id="book_message" class="smaller3 col-sm-6">
+									<%= link_to "Add to My Favorites", share_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "favorite" %>
+								</div>
+								<div id="book_message" class="smaller3 col-sm-6">
+									<%= link_to "I couldn't finish this", dislike_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "unfinished" %>
+								</div>
+								<hr class="red_line">
+								</div>
+							<% end %>
+						</div>
+						<hr class="red_line">
+				</li>
+			<% end %>
+			</ol>
+				<hr>
+		<% else %>
+			<ul>
+				<li>Sorry, no listings found for your selection.</li>
+			</ul>
+		<% end %>
+	</div>
+
+</div>
 </div>
