@@ -14,10 +14,12 @@
 41.times do |n|
   first_name  = Faker::Name.first_name
   last_name = Faker::Name.last_name
+  username = Faker::Internet.user_name
   email = "example-#{n+1}@xyz.com"
   password = "password"
   User.create!(first_name:  first_name,
-  						 last_name: last_name, 
+  						 last_name: last_name,
+  						 username: username, 
                email: email,
                password:              password,
                password_confirmation: password)

@@ -11,7 +11,7 @@
 		<ul class="users">
 		  <% @users.order("last_name asc").each do |user| %>
 		    <li>
-		      <h3><%= link_to "#{user.first_name} #{user.last_name}", user %></h3>
+		      <h3><%= link_to "#{user.username}", user %></h3>
 		      Favorite Book:
 		      <% if user.favorite_books.empty? %>
 		      	<span class="favorite_book">None Selected</span>
