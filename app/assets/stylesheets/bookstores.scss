@@ -192,7 +192,6 @@ footer {
 }
 
 #signin1 {
-	height: 180px;
 	padding-top: 15px;
 	padding-bottom: 30px;
 	text-align: center;
@@ -206,7 +205,7 @@ footer {
 }
 
 #signin2 {
-	height: 240px;
+	margin-top: 10px;
 	text-align: right;
 	h1 {
 		text-align: center;
@@ -228,11 +227,13 @@ footer {
 		font-family: 'Petit Formal Script', cursive;
 		text-align: center;
 		margin: 10 auto;
-		width: 100px;
+		width: 140px;
 		font-size: 2em;
 		margin-top: 25px;
 		color: white;
 		padding: 5px;
+		padding-left: 20px;
+		padding-right: 20px;
 		background-color: $green;
 		&:hover {
 			background-color: white;
