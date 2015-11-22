@@ -12,22 +12,26 @@
 <%= include_gon %>
 
 <div class="row">
-	<div class="col-md-offset-2 col-md-8">
+<div class="col-lg-offset-2 col-lg-8">
+	<div class="row">
+	<div class="col-lg-6">
 		<h1>Bookstores</h1>
 		<% @book_stores.each do |store| %>
-			<%= store['name'] %>
+			<%= store['name'] %><br>
 			<%= store['vicinity'] %>
 			<br><hr>
 		<% end %>
-
+	</div>
+	<div class="col-lg-6">
 		<h1>Libraries</h1>
 		<% @libs.each do |library| %>
-			<%= library['name'] %>
+			<%= library['name'] %><br>
 			<%= library['vicinity'] %>
 			<br><hr>
 		<% end %>
 	</div>
-	<div class="col-md-3"></div>
+	</div>
+</div>
 </div>
 
 <script>
