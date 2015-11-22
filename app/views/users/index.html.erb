@@ -1,35 +1,82 @@
 <%= render 'layouts/header' %>
 
 <div class="row">
-<div class="col-lg-offset-3 col-lg-6" id="member_list_wrapper">
-	<div class="row">
-	<div class="col-lg-4 index_left">
+	<div class="col-lg-offset-3 col-lg-6" id="member_list_wrapper">
 		<h1>Your Fellow DogEar Members</h1>
 		<h4>See what books other members love and don't love.</h4>
 	</div>
-	<div class="col-lg-8 index_right">
+</div>
+<div class="row">
+	<div class="col-lg-offset-3 col-lg-6 index">
 		<ul class="users">
 		  <% @users.order("last_name asc").each do |user| %>
+
 		    <li>
-		      <h3><%= link_to "#{user.username}", user %></h3>
-		      Favorite Book:
-		      <% if user.favorite_books.empty? %>
-		      	<span class="favorite_book">None Selected</span>
-		      <% else %>
-		      	<span class="favorite_book"><%= user.favorite_books.first.title %> (<%= user.favorite_books.first.year %>), by <%= user.favorite_books.first.author %></span>	
-		      <% end %>
-		      <hr class="dotted_line">
-		      	Least Favorite Book:
+		    	<h1><%= link_to "#{user.username}", user %></h1>
+		    	<div class="row users_favs">
+					<div class="col-lg-6">
+		      	<p>Loved it!</p>
+			      <% if user.favorite_books.empty? %>
+			      	<span class="favorite_book">None Selected</span>
+			      <% else %>
+			      <div class="index_half">
+			      	<%= image_tag user.favorite_books.first.image_url %><br>
+			      	<span class="favorite_book">
+			      		<%= user.favorite_books.first.title %> (<%= user.favorite_books.first.year %>)<br>
+			      		<%= user.favorite_books.first.author %>
+			      	</span>
+			      </div>
+			      		<div class="row">	
+									<% if logged_in? %>
+										<div class="col-sm-12 favs_not">
+										<div id="book_message" class="smaller3 col-sm-6">
+											<%= link_to "Add to My Favorites", share_path(user_id: @current_user.id, book_id: user.favorite_books.first.id), method: :post, remote: true, class: "favorite" %>
+										</div>
+										<div id="book_message" class="smaller3 col-sm-6">
+											<%= link_to "I couldn't finish this", dislike_path(user_id: @current_user.id, book_id: user.favorite_books.first.id), method: :post, remote: true, class: "unfinished" %>
+										</div>
+										<hr class="red_line">
+										</div>
+									<% end %>
+								</div>
+			      <% end %>
+			     </div>
+		      <div class="col-lg-6">
+		      <p>Not loved it!</p>
 		      <% if user.hated_books.empty? %>
 		      	<span class="favorite_book">None Selected</span>
 		      <% else %>
-		      	<span class="favorite_book"><%= user.hated_books.first.title %> (<%= user.hated_books.first.year %>), by <%= user.hated_books.first.author %></span>
+		      	<div class="index_half">
+			      	<%= image_tag user.hated_books.first.image_url %><br>
+			      	<span class="favorite_book">
+			      		<%= user.hated_books.first.title %> (<%= user.hated_books.first.year %>)<br>
+			      		<%= user.hated_books.first.author %>
+				      </span>
+				    </div>	
+
+		      	<div class="row">	
+								<% if logged_in? %>
+									<div class="col-sm-12 favs_not">
+									<div id="book_message" class="smaller3 col-sm-6">
+										<%= link_to "Add to My Favorites", share_path(user_id: @current_user.id, book_id: user.hated_books.first.id), method: :post, remote: true, class: "favorite" %>
+									</div>
+									<div id="book_message" class="smaller3 col-sm-6">
+										<%= link_to "I couldn't finish this", dislike_path(user_id: @current_user.id, book_id: user.hated_books.first.id), method: :post, remote: true, class: "unfinished" %>
+									</div>
+									<hr class="red_line">
+									</div>
+								<% end %>
+							</div>
+							</div>
 		      <% end %>
 		    </li>
 		  <hr class="red_line">
 		  <% end %>
 		</ul>
-		<%= will_paginate %>
+		<div class="paginate">
+			<%= will_paginate %>
+		</div>
+
 	</div>
 </div>
 </div>

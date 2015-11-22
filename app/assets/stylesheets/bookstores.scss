@@ -36,6 +36,10 @@
 	text-align: center;
 }
 
+.paginate {
+	text-align: center;
+}
+
 /*================================
 --------- HEADER/FOOTER -----------
 ================================= */
@@ -263,44 +267,53 @@ footer {
 #member_list_wrapper {
 	margin-top: 25px;
 	text-align: center;
-	.index_left {
-		background-color: $green;
-		padding: 20px;
-		h1 {
-			color: $beige;
-		}
-		h4 {
-			margin-top: 15px;
-			font-family: 'Petit Formal Script', cursive;
-			color: $dark_red;
-		}
+}
+
+.users_favs {
+	text-align: center;
+	p {
+		font-family: 'Petit Formal Script', cursive;
+		font-size: 1.3em;
+		color: $green;
+		background-color: white;
+		width: 200px;
+		margin: 5px auto;
+		border-radius: 25px;
 	}
-	.index_right {
-		padding-right: 15px;
-		.users {
-			padding-left: 0;
-			li {
-				text-align: right;
-				list-style-type: none;
-				color: $brown;
-				h3 {
-					a {
+}
+
+.index {
+	padding: 0;
+	.users {
+		padding-left: 0;
+		text-align: center;
+		li {
+			text-align: center;
+			list-style-type: none;
+			color: white;
+			h1 {
+				a {
+					color: white;
+					border-bottom: 2px solid white;
+					margin-bottom: 10px;
+					&:hover {
 						color: $dark_red;
-						&:hover {
-							color: $red;
-							text-decoration: none;
-						}
+						text-decoration: none;
 					}
-					font-family: 'Petit Formal Script', cursive;
 				}
+				font-family: 'Petit Formal Script', cursive;
 			}
 		}
 	}
 }
 
-.favorite_book {
-	color: $green;
+.index_half {
+	height: 220px;
+	img {
+		border: 3px solid white;
+	}
 }
+
 
 
 /*================================
@@ -311,6 +324,7 @@ footer {
 	margin-top: 30px;
 	text-align: center;
 	background-color: white;
+	border-radius: 25px;
 	color: $green;
 	padding-top: 20px;
 	padding-bottom: 20px;

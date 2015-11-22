@@ -1,0 +1,13 @@
+<div class="row">	
+	<% if logged_in? %>
+		<div class="col-sm-12 favs_not">
+		<div id="book_message" class="smaller3 col-sm-6">
+			<%= link_to "Add to My Favorites", share_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "favorite" %>
+		</div>
+		<div id="book_message" class="smaller3 col-sm-6">
+			<%= link_to "I couldn't finish this", dislike_path(user_id: @current_user.id, book_id: book.id), method: :post, remote: true, class: "unfinished" %>
+		</div>
+		<hr class="red_line">
+		</div>
+	<% end %>
+</div>
