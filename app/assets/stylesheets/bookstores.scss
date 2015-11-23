@@ -221,6 +221,10 @@ footer {
 	h1 {
 		text-align: center;
 	}
+	h3 {
+		border-bottom: 1px solid white;
+		text-align: center;
+	}
 	label {
 		color: white;
 		padding-bottom: 0;
@@ -234,7 +238,11 @@ footer {
 		text-align: right;
 		border-color: white;
 	}
-	input:last-child {
+}
+
+#signin_button {
+	text-align: center;
+	input {
 		font-family: 'Petit Formal Script', cursive;
 		text-align: center;
 		margin: 10 auto;
@@ -251,10 +259,6 @@ footer {
 			color: $green;
 		}
 	}
-}
-
-.signin_button {
-	text-align: center;
 }
 
 .space {
