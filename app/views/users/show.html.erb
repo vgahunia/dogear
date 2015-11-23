@@ -7,7 +7,12 @@
 		<div>
 			<% if current_user.id == @user.id %>
 				<h3><%= @user.first_name %> <%= @user.last_name %></h3><br>
-				<%= @user.fav_author %><%= @user.genres.first.name %>
+				<%= @user.fav_author %>
+				<% if @user.genres.any? %>
+					<% @user.genres.each do |genre| %>
+						<%= genre.name %><br>
+					<% end %>
+				<% end %>
 				<p><%= link_to "Edit your information", edit_user_path %></p>
 			<% end %>
 		</div>

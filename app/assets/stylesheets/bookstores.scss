@@ -198,6 +198,10 @@ footer {
 		font-size: 1em;
 		a {
 			color: white;
+			text-decoration: underline;
+			&:hover {
+				color: $dark_red;
+			}
 		}
 	}
 }
@@ -263,6 +267,35 @@ footer {
 
 .space {
 	height: 50px;
+}
+
+#essentials {
+	text-align: left;
+	border-right: 1px solid white;
+	input {
+		text-align: left;
+		color: $dark_red;
+	}
+}
+
+#group {
+	color: white;
+	border: 1px solid white;
+	text-align: right;
+	padding-bottom: 10px;
+	legend {
+		color: white;
+		border-bottom: none;
+		margin-bottom: 4px;
+	}
+}
+
+.collection-check-box {
+	display: block;
+	font-size: .6em;
+	float: right;
+  width: 33%;
+  text-align: left;
 }
 
 /*================================

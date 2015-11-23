@@ -7,7 +7,7 @@
       <h2>Update your Account Information</h2>
       <div id="account">
         <% if current_user?(@user) %>
-        <p><%= link_to "If you truly must... Delete your account", @user, method: :delete, data: { confirm: "You sure?" } %></p>
+        <p>If you truly must...<%= link_to " Delete your account", @user, method: :delete, data: { confirm: "You sure?" } %></p>
         <% end %>
       </div>
     </div>
@@ -22,7 +22,7 @@
             </div>
 
             <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6" id="essentials">
                 <h3>The Essentials</h3>
                 <%= f.label :username %>
                 <%= f.text_field :username, class: 'form-control' %>
@@ -42,18 +42,21 @@
                 <%= f.label :password_confirmation, "Confirmation" %>
                 <%= f.password_field :password_confirmation, class: 'form-control' %>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 fun_stuff">
                 <h3>The Fun Stuff</h3>
                 <%= f.label :fav_author, "Favorite Author" %>
-                <%= f.text_field :fav_author, class: 'form-control' %>
+                <%= f.text_field :fav_author, class: 'form-control' %><br>
                 <div class="field">
-                  <%= f.label "Favorite Genres" %><br />
+                 
+                  <fieldset class="col-lg-offset-1 col-lg-11" id="group">
+                    <legend>Pick your favorite Genres</legend>
                   <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name do |b| %>
                     <div class="collection-check-box">
                       <%= b.check_box %>
                       <%= b.label %>
                     </div>
                   <% end %>
+                  </fieldset>
                 </div>
             </div>
             </div>
