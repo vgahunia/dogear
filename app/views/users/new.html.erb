@@ -46,6 +46,15 @@
                 <h3>The Fun Stuff</h3>
                 <%= f.label :fav_author, "Favorite Author" %>
                 <%= f.text_field :fav_author, class: 'form-control' %>
+                <div class="field">
+                  <%= f.label "Favorite Genres" %><br />
+                  <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name do |b| %>
+                    <div class="collection-check-box">
+                      <%= b.check_box %>
+                      <%= b.label %>
+                    </div>
+                  <% end %>
+                </div>
             </div>
             </div>
             <div class="row">

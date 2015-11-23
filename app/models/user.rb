@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 	has_many :hated_books, -> { distinct }, through: :unfinisheds, source: :book
 	has_many :unfinisheds
 
+	has_and_belongs_to_many :genres
+
 	# validates_uniqueness_of :favorite
 	# validates_uniqueness_of :unfinished
 
