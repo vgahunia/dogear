@@ -24,6 +24,10 @@
 	border-color: white;
 }
 
+.thick_line {
+	border: 3px solid white;
+}
+
 .dotted_line {
 	text-align: right;
 	border: 1px dotted white;
@@ -271,7 +275,7 @@ footer {
 
 #essentials {
 	text-align: left;
-	border-right: 1px solid white;
+	border-right: 6px solid white;
 	input {
 		text-align: left;
 		color: $dark_red;

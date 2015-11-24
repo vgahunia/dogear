@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :index]
   before_action :correct_user,   only: [:edit, :update]
   include SessionsHelper
+  include UsersHelper
 
   def new
   	@user = User.new
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
   private
 
   	def user_params
-      params.require(:user).permit(:username, :first_name, :last_name, :email, :password, :password_confirmation, :fav_author, genre_ids:[])
+      params.require(:user).permit(:username, :state, :city, :first_name, :last_name, :email, :password, :password_confirmation, :fav_author, genre_ids:[])
     end
 
     def logged_in_user
