@@ -363,15 +363,27 @@ footer {
 ================================= */
 
 #profile_info {
-	margin-top: 30px;
-	text-align: center;
-	background-color: white;
+	margin-top: 10px;
+	text-align: left;
 	border-radius: 25px;
-	color: $green;
+	color: white;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	border-bottom: 3px solid white;
 	a {
 		color: $dark_red;
+		display: inline;
+	}
+	h2 {
+		font-family: 'Petit Formal Script', cursive;
+		border-bottom: 1px solid white;
+		text-align: center;
+	}
+	h3 {
+		text-align: center;
+		span {
+			font-size: .4em;
+		}
 	}
 }
 
@@ -502,12 +514,13 @@ footer {
   
 	#header_menu {
 		padding-top: 10px;
+		border-bottom: none;
 		ul {
 			padding-left: 0;
 		}
 		li {
-			&:first-child {
-				border-top: 10px solid white;
+			&:last-child {
+				
 			}
 			padding: 5px;
 			font-size: 1em;
