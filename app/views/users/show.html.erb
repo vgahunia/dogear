@@ -38,10 +38,10 @@
 		<% if @user.favorites.any? %>
 			<h2>Books I Love<br> (<%= @user.favorite_books.count %>)
 			</h2>
-			<ol class="big_number">
+			<ol class="big_number sortable">
 				<% @user.favorite_books.each do |favorite| %>
 					<% Book.where(id: favorite.id).each do |book| %>
-						<li>
+						<li class="sorted">
 							<div id="rankings">
 								<%= image_tag book.image_url %>
 								<br><br>
@@ -59,10 +59,10 @@
 	<div class="col-lg-6 profile_books">	
 		<% if @user.hated_books.any? %>
 			<h2>Books I Don't<br> (<%= @user.hated_books.count %>)</h2>
-			<ol class="big_number">
+			<ol class="big_number sortable">
 				<% @user.hated_books.each do |unfinished| %>
 					<% Book.where(id: unfinished.id).each do |book| %>
-						<li>
+						<li class="sorted">
 							<div id="rankings">
 								<%= image_tag book.image_url %>
 								<br><br>

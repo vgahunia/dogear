@@ -505,6 +505,13 @@ footer {
 	color: $red;
 }
 
+.sorted {
+	cursor: move;
+	&:hover {
+		background-color: $lt_green;
+	}
+}
+
 
 /*================================
 ----------- MEDIA QUERIES ----------
