@@ -1,22 +1,21 @@
 <%= render 'layouts/header' %>
 
 <div class="row">
-<div class="col-lg-offset-3 col-lg-6"> 
+<div class="col-lg-offset-4 col-lg-4"> 
 	<div id="profile_info">
 		
 			<h2><%= @user.username %></h2>
 			<% if current_user.id == @user.id %>
 				<h3><%= @user.first_name %> <%= @user.last_name %> <span><%= link_to "Edit your information", edit_user_path %></span></h3>
 			<% end %>
-		<div class="row">
-		<div class="col-lg-6">
 			Location: <%= @user.city %>, <%= @user.state %><br>
 			Favorite Author: <%= @user.fav_author %><br>
-		</div>
-		<div class="col-lg-6">
-			Favorite Genres:
+			
+			<div class="row" id="list_genres">
+			<div class="col-lg-offset-4 col-lg-4">
+				Favorite Genres:
 			<% if @user.genres.any? %>
-				<ol> 
+				<ol class="sortable"> 
 					<% @user.genres.each do |genre| %>
 						<li>
 							<%= genre.name %><br>
@@ -24,8 +23,8 @@
 					<% end %>
 				</ol>
 			<% end %>
-		</div>
-		</div>
+			</div>
+			</div>
 	</div>
 </div>
 </div>
@@ -48,6 +47,8 @@
 								<%= book.title %><br>
 								(<%= book.year %>)
 								<br><span class="smaller"><%= book.author %></span>
+								<span class="smaller"><br>
+									<%= link_to "Remove from list", remove_path(user_id: @current_user.id, book_id: book.id), method: :post %></span>
 							</div>
 							<hr class="red_line">
 						</li>
@@ -68,7 +69,9 @@
 								<br><br>
 								<%= book.title %><br>
 								(<%= book.year %>) 
-								<br><span class="smaller"><%= book.author %></span>
+								<br><span class="smaller"><%= book.author %></span><br>
+								<span class="smaller">
+									<%= link_to "Remove from list" %></span>
 							</div>
 							<hr class="red_line">
 						</li>

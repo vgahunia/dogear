@@ -364,19 +364,19 @@ footer {
 
 #profile_info {
 	margin-top: 10px;
-	text-align: left;
+	text-align: center;
 	border-radius: 25px;
-	color: white;
+	color: $green;
+	background-color: white;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	border-bottom: 3px solid white;
 	a {
 		color: $dark_red;
 		display: inline;
 	}
 	h2 {
 		font-family: 'Petit Formal Script', cursive;
-		border-bottom: 1px solid white;
+		border-bottom: 1px solid $green;
 		text-align: center;
 	}
 	h3 {
@@ -401,12 +401,14 @@ footer {
 
 .big_number {
 	padding-left: 0;
+	padding: 10px;
 	text-align: left;
 	list-style-position: inside;
 	font-family: 'Petit Formal Script', cursive;
 	li {
 		font-size: 8em;
 		color: white;
+		margin-bottom: 5px;
 	}
 }
 
@@ -509,6 +511,8 @@ footer {
 	cursor: move;
 	&:hover {
 		background-color: $lt_green;
+		border-radius: 50px;
+
 	}
 }
 

@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   
   post '/share' => 'books#share'
   post '/dislike' => 'books#dislike'
+  post '/remove' => 'books#remove'
 
   # root 'welcome#index'
 

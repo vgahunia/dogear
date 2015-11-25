@@ -30,6 +30,19 @@ class BooksController < ApplicationController
   }
   end
 
+  def remove
+    user = User.find(params[:user_id])
+    removed = Book.find(params[:book_id])
+    puts "PULLING UP REMOVED:"
+    puts removed.id
+    book = user.favorites.find_by(book_id: removed.id)
+    puts "++++++++++++++++++++++++++++"
+    puts book
+    book.destroy
+    flash[:success] = "Item has been removed"
+    redirect_to :back
+  end
+
   def share
     puts "SHARING BOOK"
 
@@ -42,7 +55,7 @@ class BooksController < ApplicationController
       flash[:success] = "Your book was added"
       redirect_to :back
     else
-      flash[:danger] = "You have already stated that you could not finish this book."
+      flash[:success] = "You have already stated that you could not finish this book."
       @switch = false
       redirect_to :back
     end
