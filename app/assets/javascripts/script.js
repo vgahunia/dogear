@@ -1,11 +1,19 @@
 
 $(document).ready(function() {
+
 	$('#header_menu li').mouseover(function() {
 		$(this).find("a").css("color", "rgb(127, 23, 31)");
 	})
 	$('#header_menu li').mouseout(function() {
 		$(this).find("a").css("color", "white");
 	})
+
+	// LOGO CHANGE IMAGE ON HOVER
+
+	$('#x').mouseover(function() {
+		$(this).attr("src") = "logo_hover.png";
+	})
+
 })
 
 var ready;
