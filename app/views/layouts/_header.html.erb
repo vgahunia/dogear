@@ -12,7 +12,11 @@
 
 <div class="row">
 <div class="col-lg-12" id="logo">
-	<div id="x"><%= link_to image_tag("logo_3.png"), root_path %></div>
+	<div><%= link_to image_tag("logo_3.png", 
+		:onmouseover => "this.src='/assets/logo_hover.png'", 
+		:onmouseout => "this.src='/assets/logo_3.png'"), 
+		root_path, class: "x" %>
+	</div>
 	<nav id="header_menu" class="row">
 		<ul>
 			<li><%= link_to "Search Books", books_new_path %></li>

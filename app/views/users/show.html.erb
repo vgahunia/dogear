@@ -1,15 +1,27 @@
 <%= render 'layouts/header' %>
 
 <div class="row">
-<div class="col-lg-offset-4 col-lg-4"> 
+<div class="col-lg-offset-3 col-lg-6"> 
 	<div id="profile_info">
 		
-			<h2><%= @user.username %></h2>
-			<% if current_user.id == @user.id %>
-				<h3><%= @user.first_name %> <%= @user.last_name %> <span><%= link_to "Edit your information", edit_user_path %></span></h3>
-			<% end %>
-			Location: <%= @user.city %>, <%= @user.state %><br>
-			Favorite Author: <%= @user.fav_author %><br>
+			<h1><%= @user.username %></h1>
+			<div class="row">
+			<div class="col-lg-offset-1 col-lg-6" id="edit_row">
+				<% if current_user.id == @user.id %>
+					<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+			</div>
+			<div class="col-lg-4" id="edit_img">
+				<%= link_to image_tag("edit.png"), edit_user_path %>
+				<br><br>
+			</div>
+				<% end %>
+
+			<div class="row">
+			<div class="col-lg-12">
+				Location: <%= @user.city %>, <%= @user.state %><br>
+				Favorite Author: <%= @user.fav_author %><br>
+			</div>
+			</div>
 			
 			<div class="row" id="list_genres">
 			<div class="col-lg-offset-4 col-lg-4">

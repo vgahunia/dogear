@@ -129,6 +129,7 @@ footer {
 	margin-left: 3%;
 }
 
+
 /*================================
 -------------- HOME --------------
 ================================= */
@@ -364,17 +365,23 @@ footer {
 		color: $dark_red;
 		display: inline;
 	}
-	h2 {
+	h1 {
 		font-family: 'Petit Formal Script', cursive;
 		border-bottom: 1px solid $green;
 		text-align: center;
 	}
-	h3 {
-		text-align: center;
-		span {
-			font-size: .4em;
-		}
+}
+
+#edit_row {
+	h2 {
+		font-family: 'Glegoo', serif; 
+		border: none;
+		text-align: right;
 	}
+}
+
+#edit_img {
+	text-align: left;
 }
 
 .profile_books {
