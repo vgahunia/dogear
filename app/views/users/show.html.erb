@@ -11,7 +11,10 @@
 					<h2><%= @user.first_name %> <%= @user.last_name %></h2>
 			</div>
 			<div class="col-lg-4" id="edit_img">
-				<%= link_to image_tag("edit.png"), edit_user_path %>
+				<%= link_to image_tag("edit.png", 
+					:onmouseover => "this.src='/assets/edit_hover.png'", 
+					:onmouseout => "this.src='/assets/edit.png'"), 
+					edit_user_path, class: "x" %>
 				<br><br>
 			</div>
 				<% end %>
