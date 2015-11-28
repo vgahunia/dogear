@@ -41,7 +41,7 @@
                 <%= f.text_field :city, class: 'form-control' %>
 
                 <%= f.label :state %><br>
-                <%= f.select :state, options_for_select(us_states) %><br>
+                <%= f.select :state, us_states %><br>
 
                 <%= f.label :email %>
                 <%= f.email_field :email, class: 'form-control' %>
