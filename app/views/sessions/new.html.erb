@@ -13,7 +13,9 @@
         <%= f.label :password %>
         <%= f.password_field :password, class: 'form-control' %>
         <div id="signin_button">
-          <%= f.submit "Woof!", class: "btn btn-primary" %>
+          <%= image_submit_tag("paw.png", 
+            :onmouseover => "this.src='/assets/paw_hover.png'", 
+            :onmouseout => "this.src='/assets/paw.png'") %>
         </div>
       <% end %>
     </div>

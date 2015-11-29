@@ -13,11 +13,19 @@ ready = function(){
 		})
 
 		$('.box').mouseover(function() {
-			$("#hide_target").removeClass('hidden').addClass('search');
+			$(this).find("#hide_target").removeClass('hidden').addClass('search');
 		})
 		$('.box').mouseout(function() {
-			$("#hide_target").removeClass('search').addClass('hidden');
+			$(this).find("#hide_target").removeClass('search').addClass('hidden');
 		})
+
+		$('.box').mouseover(function() {
+			$(this).find("#hide_stores").removeClass('hidden').addClass('search');
+		})
+		$('.box').mouseout(function() {
+			$(this).find("#hide_stores").removeClass('search').addClass('hidden');
+		})
+
 }
 
 $(document).ready(ready);

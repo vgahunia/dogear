@@ -270,10 +270,7 @@ footer {
 		padding-left: 20px;
 		padding-right: 20px;
 		background-color: $green;
-		&:hover {
-			background-color: white;
-			color: $green;
-		}
+		border-radius: 100%;
 	}
 }
 
@@ -309,6 +306,7 @@ footer {
   width: 33%;
   text-align: left;
 }
+
 
 /*================================
 ----------- USERS INDEX ----------
@@ -464,13 +462,6 @@ footer {
 		margin-bottom: 10px;
 		background-color: $green;
 		color: white;
-	}
-	input:last-child {
-		background-color: $green;
-		color: white;
-		&:hover {
-			color: $dark_red;
-		}
 	}
 	#choice_title {
 		width: 300px;

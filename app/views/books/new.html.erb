@@ -6,7 +6,11 @@
 		<h3>Search by title or author</h3>
 		<%= form_tag(books_index_path, :method=>"get") do %>
 	      <%= text_field_tag(:choice_title) %><br>
-	      <%= submit_tag("Woof!", :class=>"btn") %>
+	      <div id="signin_button">
+          <%= image_submit_tag("paw.png", 
+            :onmouseover => "this.src='/assets/paw_hover.png'", 
+            :onmouseout => "this.src='/assets/paw.png'") %>
+        </div>
 	  <% end %>
 	</div>
 </div>

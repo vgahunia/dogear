@@ -70,7 +70,9 @@
             <div class="row">
             <div class="col-lg-offset-4 col-lg-4">
                 <div id="signin_button">
-                    <%= f.submit "Woof!", class: "btn btn-primary" %>
+                  <%= image_submit_tag("paw.png", 
+                    :onmouseover => "this.src='/assets/paw_hover.png'", 
+                    :onmouseout => "this.src='/assets/paw.png'") %>
                 </div>
             </div>
             </div>
