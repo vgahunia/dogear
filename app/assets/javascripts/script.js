@@ -26,6 +26,41 @@ ready = function(){
 			$(this).find("#hide_stores").removeClass('search').addClass('hidden');
 		})
 
+		$.Velocity
+		.RegisterEffect("shadowIn", {
+			defaultDuration: 500,
+			calls: [
+				[ { color: "rgb(100, 100, 100)" }, .4 ],
+				[ { opacity: .7, scale: 1.4, rotateZ: "-30deg" }, 0.6 ]
+			]
+		})
+
+		.RegisterEffect("shadowBack", {
+			defaultDuration: 400,
+			calls: [
+				[ { rotateZ: "0deg", opacity: 1, scale: 1 }, 1.0]
+			]
+		})
+
+		.RegisterEffect("shadowOut", {
+			defaultDuration: 500,
+			calls: [
+				[ { rotateZ: "0deg" }, 0.4 ],
+				[ { opacity: 0, scale: 0 }, 0.6 ]
+			]
+		});
+
+		$(".vel-button").mouseover(function() {
+			$(this).velocity("shadowIn");
+		})
+		$(".vel-button").mouseout(function() {
+			$(this).velocity("shadowBack");
+		})
+		$(".vel-button").mousedown(function() {
+			$(this).velocity("shadowOut");
+		})
+		
+
 }
 
 $(document).ready(ready);

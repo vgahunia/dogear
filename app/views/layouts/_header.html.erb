@@ -19,14 +19,14 @@
 	</div>
 	<nav id="header_menu" class="row">
 		<ul>
-			<li><%= link_to "Search Books", books_new_path %></li>
-			<li><%= link_to "Search Bookstores", '#', id: "stores" %></li>
+			<li><%= link_to "Search Books", books_new_path, class: "vel-button" %></li>
+			<li><%= link_to "Search Bookstores", '#', id: "stores", class: "vel-button" %></li>
 			<% if logged_in? %>
-				<li><%= link_to "My Profile", current_user %></li>
-				<li><%= link_to "Member List", users_path %></li>
+				<li><%= link_to "My Profile", current_user, class: "vel-button" %></li>
+				<li><%= link_to "Member List", users_path, class: "vel-button" %></li>
 			<% else %>
-				<li><%= link_to "Sign in", login_path %></li>
-				<li><%= link_to "Sign Up", signup_path %></li>
+				<li><%= link_to "Sign in", login_path, class: "vel-button" %></li>
+				<li><%= link_to "Sign Up", signup_path, class: "vel-button" %></li>
 			<% end %>
 		</ul>
 	</nav>

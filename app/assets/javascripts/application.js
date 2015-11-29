@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require jquery-ui
+//= require velocity
 //= require underscore
 //= require gmaps/google
 //= require_tree .
