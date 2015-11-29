@@ -28,9 +28,9 @@ ready = function(){
 
 		$.Velocity
 		.RegisterEffect("shadowIn", {
-			defaultDuration: 500,
+			defaultDuration: 600,
 			calls: [
-				[ { color: "rgb(100, 100, 100)" }, .4 ],
+				[ { backgroundColor: "rgb(100, 100, 100)" }, 0.4 ],
 				[ { opacity: .7, scale: 1.4, rotateZ: "-30deg" }, 0.6 ]
 			]
 		})
