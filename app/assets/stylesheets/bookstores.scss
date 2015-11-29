@@ -105,8 +105,8 @@
 	li:hover {
 			color: $dark_red;
 			text-decoration: none;
-			background-color: white;
-			border-radius: 25px;
+			background-color: $lt_green;
+			border-radius: 50%;
 	}
 }
 
@@ -151,6 +151,10 @@ footer {
 	// border-radius: 25px;
 	margin: 40px auto;
 	font-size: 1.4em;
+	border-bottom: 1px solid white;
+	&:hover {
+		border-bottom: none;
+	}
 	a {
 		color: white;
 		position: relative;
@@ -161,7 +165,7 @@ footer {
 		text-decoration: none;
 		font-size: 1.2em;
 	}
-	h1 {
+	h2 {
 		margin: 0;
 	}
 }
@@ -169,6 +173,16 @@ footer {
 #box3 {
 	height: 280px;
 	border: none;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.search {
+	color: white;
+	font-family: 'Petit Formal Script', cursive;
+	margin-top: 20px;
 }
 
 /*================================

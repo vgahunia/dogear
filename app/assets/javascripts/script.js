@@ -11,6 +11,13 @@ ready = function(){
 		$('#header_menu li').mouseout(function() {
 			$(this).find("a").css("color", "white");
 		})
+
+		$('.box').mouseover(function() {
+			$("#hide_target").removeClass('hidden').addClass('search');
+		})
+		$('.box').mouseout(function() {
+			$("#hide_target").removeClass('search').addClass('hidden');
+		})
 }
 
 $(document).ready(ready);

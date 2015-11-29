@@ -6,7 +6,15 @@
 		<div class="row" id="home_menu">
 
 					<div class="box col-lg-6">
-						<%= link_to "Search Books", books_new_path %>
+						<%= link_to image_tag("books.png", 
+							:onmouseover => "this.src='/assets/books_hover.png'", 
+							:onmouseout => "this.src='/assets/books.png'"), 
+							books_new_path %>
+						<div class="hidden row" id="hide_target">
+						<div class="col-lg-12" >
+							<h2>Search Bookstores</h2>
+						</div>
+						</div>
 					</div>
 					<div class="box col-lg-6">
 						<%= link_to "Search Bookstores", '#', id: "stores" %>
