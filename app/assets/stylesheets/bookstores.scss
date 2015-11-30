@@ -103,7 +103,9 @@
 		padding-right: 20px;
 	}
 	li a {
-		padding: 6px;
+		padding: 4px;
+		padding-left: 19px;
+		padding-right: 19px;
 	}
 	li a:hover {
 			color: $dark_red;
@@ -151,10 +153,10 @@ footer {
 
 .box {
 	width: 100%;
-	// border-radius: 25px;
+	border-radius: 4px;
 	margin: 40px auto;
 	font-size: 1.4em;
-	border-bottom: 1px solid white;
+	border-bottom: 5px solid white;
 	&:hover {
 		border-bottom: none;
 	}
@@ -268,14 +270,32 @@ footer {
 		width: 140px;
 		font-size: 2em;
 		margin-top: 25px;
-		color: white;
-		padding: 5px;
-		padding-left: 20px;
-		padding-right: 20px;
-		background-color: $green;
-		border-radius: 100%;
+		// color: white;
+		// padding: 5px;
+		// padding-left: 20px;
+		// padding-right: 20px;
+		// background-color: $green;
+		&:hover {
+			background-color: white;
+			color: $green;
+		}
+		&:active {
+	    outline: 0px !important;
+	    -webkit-appearance: none;
+	    border: none;
+	    box-shadow: none;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+		}
 	}
 }
+
+.btn:focus {
+  outline: none !important;
+}
+
+.form-control {
+box-shadow: none!important;}
 
 .space {
 	height: 50px;
@@ -449,25 +469,47 @@ footer {
 	color: white;
 }
 
+
+/*================================
+----------- BOOKS INDEX-----------
+================================= */
+
+
 #book_lookup {
 	text-align: center;
-	background-color: white;
 	padding-bottom: 10px;
 	margin-bottom: 20px;
 	.searched {
 		color: $dark_red;
 		font-size: 1.9em;
 	}
-	h3 {
-		color: $green;
+	h1 {
+		color: white;
 	}
 	input {
 		margin-bottom: 10px;
 		background-color: $green;
-		color: white;
 	}
-	#choice_title {
-		width: 300px;
+}
+
+#choice_title {
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 350px;
+	text-align: right;
+	color: $green;
+	padding-bottom: 0;
+}
+
+#search_button {
+	text-align: center;
+	width: 350px;
+	input {
+		text-align: center;
+		margin: 0 auto;
+		width: 100px;
+		background-color: $green;
+		border-radius: 100%;
 	}
 }
 

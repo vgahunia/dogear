@@ -2,16 +2,19 @@
 
 <br>
 <div class="row">
-	<div class="col-md-offset-4 col-md-4" id="book_lookup">
-		<h3>Search by title or author</h3>
+	<div class="col-lg-offset-2 col-lg-4" id="book_lookup">
+		<h1>Search by title or author:</h1>
+	</div>
+	<div class="col-lg-4">
 		<%= form_tag(books_index_path, :method=>"get") do %>
 	      <%= text_field_tag(:choice_title) %><br>
-	      <div id="signin_button">
+	      <div id="search_button">
           <%= image_submit_tag("paw.png", 
             :onmouseover => "this.src='/assets/paw_hover.png'", 
             :onmouseout => "this.src='/assets/paw.png'") %>
         </div>
 	  <% end %>
+	</div>
 	</div>
 </div>
 
