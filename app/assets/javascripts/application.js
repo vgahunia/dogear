@@ -25,11 +25,11 @@ $(document).on('page:change', function(event) {
 	// alert("CHANGED");
 
 	$('.favorite').click(function() {
-		$(this).parent().text("Added to Favorites");
+		$(this).parent().text("Added!");
 	})
 
 	$('.unfinished').click(function() {
-		$(this).parent().text("Sorry, you didn't like this.");
+		$(this).parent().text("Added!");
 	})
 
 

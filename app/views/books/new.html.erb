@@ -1,6 +1,7 @@
-<%= render 'layouts/header' %>
+	<%= render 'layouts/header' %>
 
 <br>
+<div>
 <div class="row">
 	<div class="col-lg-offset-2 col-lg-4" id="book_lookup">
 		<h1>Search by title or author:</h1>
@@ -11,7 +12,7 @@
 	      <div id="search_button">
           <%= image_submit_tag("paw.png", 
             :onmouseover => "this.src='/assets/paw_hover.png'", 
-            :onmouseout => "this.src='/assets/paw.png'") %>
+            :onmouseout => "this.src='/assets/paw.png'", class: "vel-button") %>
         </div>
 	  <% end %>
 	</div>
@@ -88,6 +89,7 @@
 		</div>
 
 	</div>
+</div>
 </div>
 
  <script type="text/javascript">

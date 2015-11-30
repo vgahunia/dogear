@@ -104,10 +104,8 @@
 	}
 	li a {
 		padding: 4px;
-		padding-left: 19px;
-		padding-right: 19px;
 	}
-	li a:hover {
+	li:hover {
 			color: $dark_red;
 			text-decoration: none;
 			background-color: $lt_green;
