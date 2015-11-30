@@ -44,6 +44,24 @@
 	text-align: center;
 }
 
+#error_explanation {
+	width: 300px;
+	margin: 5px auto;
+	background-color: white;
+	color: $dark_red;
+	padding-bottom: 15px;
+	border-radius: 25px;
+	.alert {
+		text-align: center;
+	}
+	ul {
+		padding-left: 0;
+		li {
+			text-align: center;
+			list-style-type: none;
+		}
+	}
+}
 
 /*================================
 --------- HEADER/FOOTER -----------
@@ -332,6 +350,18 @@ box-shadow: none!important;}
 
 
 /*================================
+-------- USERS NEW / SEARCH ------
+================================= */
+
+
+#book_search_head {
+		border-bottom: 5px solid white;
+		border-radius: 4px;
+		margin-bottom: 30px;
+}
+
+
+/*================================
 ----------- USERS INDEX ----------
 ================================= */
 
@@ -495,6 +525,7 @@ box-shadow: none!important;}
 #choice_title {
 	margin: 0 auto;
 	margin-top: 10px;
+	margin-bottom: 10px;
 	width: 350px;
 	text-align: right;
 	color: $green;

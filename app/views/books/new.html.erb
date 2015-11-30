@@ -3,10 +3,11 @@
 <br>
 <div>
 <div class="row">
-	<div class="col-lg-offset-2 col-lg-4" id="book_lookup">
+	<div class="col-lg-offset-2 col-lg-8" id="book_search_head">
+	<div class="col-lg-7" id="book_lookup">
 		<h1>Search by title or author:</h1>
 	</div>
-	<div class="col-lg-4">
+	<div class="col-lg-3">
 		<%= form_tag(books_index_path, :method=>"get") do %>
 	      <%= text_field_tag(:choice_title) %><br>
 	      <div id="search_button">
@@ -15,6 +16,7 @@
             :onmouseout => "this.src='/assets/paw.png'", class: "vel-button") %>
         </div>
 	  <% end %>
+	</div>
 	</div>
 	</div>
 </div>
