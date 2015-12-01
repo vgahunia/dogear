@@ -3,15 +3,13 @@
 <div class="row">
 <div class="col-md-8 col-md-offset-2">
     <div class="row" id="sign_in">
-    <div class="col-lg-8" id="signin1">
+    <div class="col-lg-offset-2 col-lg-8" id="signin1">
       <h2>Update your Account Information</h2>
-    </div>
-    <div id="account" class="col-lg-4">
         <% if current_user?(@user) %>
-        <p>If you truly must...  <%= link_to image_tag("delete.png", 
+        <p>If you truly must... </p> 
+        <%= link_to image_tag("delete.png", class: "vel-button", 
             :onmouseover => "this.src='/assets/delete_hover.png'", 
             :onmouseout => "this.src='/assets/delete.png'"), @user, method: :delete, data: { confirm: "You sure?" } %>
-        </p>
         <% end %>
     </div>
     </div>
@@ -73,7 +71,9 @@
             <div class="row">
             <div class="col-lg-offset-4 col-lg-4">
                 <div id="signin_button">
-                    <%= f.submit "Woof!", class: "btn btn-primary" %>
+                  <%= image_submit_tag("paw.png", class: "vel-button",
+                    :onmouseover => "this.src='/assets/paw_hover.png'", 
+                    :onmouseout => "this.src='/assets/paw.png'")  %>
                 </div>
             </div>
             </div>
