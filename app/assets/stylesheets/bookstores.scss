@@ -425,17 +425,11 @@ box-shadow: none!important;}
 	margin-top: 10px;
 	text-align: center;
 	border-radius: 25px;
-	color: $green;
-	background-color: white;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	a {
-		color: $dark_red;
-		display: inline;
-	}
 	h1 {
 		font-family: 'Petit Formal Script', cursive;
-		border-bottom: 1px solid $green;
+		border-bottom: 2px solid white;
 		text-align: center;
 	}
 }
@@ -444,12 +438,41 @@ box-shadow: none!important;}
 	h2 {
 		font-family: 'Glegoo', serif; 
 		border: none;
-		text-align: right;
+	}
+	table {
+		margin-bottom: 20px;
+		tr {
+			width: 400px;
+			height: 40px;
+			td { 
+				width: 200px;
+			}
+			li {
+				list-style-type: none;
+			}
+		}
+		.row_name {
+			text-align: right;
+			padding-right: 10px;
+			border-right: 1px dashed white;
+			font-family: 'Petit Formal Script', cursive;
+		}
+		.row_selection {
+			text-align: left;
+			padding-left: 10px;
+			font-weight: bold;
+			ul {
+				padding-left: 0;
+			}
+		}
 	}
 }
 
 #edit_img {
-	text-align: left;
+	margin-top: 10px;
+	padding-top: 15px;
+	border-bottom: 2px solid white;
+	text-align: center;
 }
 
 .profile_books {
@@ -601,6 +624,7 @@ box-shadow: none!important;}
 /*================================
 ----------- MEDIA QUERIES ----------
 ================================= */
+
 
 @media only screen and (max-width: 640px) {
   
