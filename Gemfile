@@ -25,6 +25,7 @@ gem 'goodreads', '~> 0.4.2'
 gem 'google_books', '~> 0.2.2'
 gem 'awesome_print'
 gem 'counter_culture', '~> 0.1.33'
+gem 'acts_as_list'
 
 
 group :development, :test do
