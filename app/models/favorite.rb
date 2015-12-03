@@ -3,4 +3,5 @@ class Favorite < ActiveRecord::Base
 	counter_culture :book
 	
 	belongs_to :user
+	acts_as_list scope: :user, add_new_at: :top
 end
