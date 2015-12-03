@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 	has_many :unfinisheds
 
 
-	has_and_belongs_to_many :genres
+	has_and_belongs_to_many :genres, :join_table => :genres_users
 
 	# validates_uniqueness_of :favorite
 	# validates_uniqueness_of :unfinished
