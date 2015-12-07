@@ -24,3 +24,14 @@
                password:              password,
                password_confirmation: password)
 end
+
+Genre.create(name: "literary")
+Genre.create(name: "Middle Grade")
+Genre.create(name: "Romance")
+Genre.create(name: "Children's")
+Genre.create(name: "Young Adult")
+Genre.create(name: "Fantasy")
+Genre.create(name: "History")
+Genre.create(name: "Sci-Fi")
+Genre.create(name: "Western")
+Genre.create(name: "Mystery")
