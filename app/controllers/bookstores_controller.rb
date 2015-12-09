@@ -48,7 +48,7 @@ class BookstoresController < ApplicationController
       @location = params[:choice_location]
       @bookstores = Bookstore.all
       puts "HASHHHHHHHHHHHHH"
-      puts @hash = Gmaps4rails.build_markers(@bookstores) do |bookstore, marker|
+      @hash = Gmaps4rails.build_markers(@bookstores) do |bookstore, marker|
         marker.lat(bookstore.latitude)
         marker.lng(bookstore.longitude)
         marker.infowindow(bookstore.description)
