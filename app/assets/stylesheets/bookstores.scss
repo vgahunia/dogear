@@ -516,6 +516,14 @@ box-shadow: none!important;}
 .smaller {
 	font-size: 14px;
 	color: white;
+	a {
+		font-size: 11px;
+		color: $dark_red;
+		&:hover {
+			color: $green;
+			text-decoration: none;
+		}
+	}
 }
 
 .smaller2 {

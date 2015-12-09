@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
 
-	has_many :favorite_books, through: :favorites, source: :book
-	has_many :favorites
+	has_many :favorite_books, -> { distinct }, through: :favorites, source: :book
+	has_many :favorites,  -> { order(position: :asc) }
 
-	has_many :hated_books, through: :unfinisheds, source: :book
+	has_many :hated_books, -> { distinct }, through: :unfinisheds, source: :book
 	has_many :unfinisheds
 
 
